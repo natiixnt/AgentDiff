@@ -13,9 +13,11 @@ AgentDiff gives you a reviewer-oriented view of that output:
 - grouped logical change sets
 - change type hints (rename, refactor, extraction, behavior change)
 - confidence scores for each detected change signal
+- AST-aware Python rename/refactor classification fallback
 - risk annotations with reasons
 - suggested review order
 - plan-vs-diff drift flags (planned-but-unchanged, changed-but-unplanned)
+- monorepo-aware workspace grouping
 - related-file context
 
 ## Why `git diff` Is Not Enough for Agent Changes
@@ -131,7 +133,7 @@ AgentDiff is intentionally lightweight: Python stdlib backend + minimal static f
 1. Parse git diff into file change objects.
 2. Detect patterns (rename, signature/config/schema/auth signals).
 3. Classify change type and score risk.
-4. Group related files into logical review sets.
+4. Group related files into logical review sets (workspace-aware in monorepos).
 5. Attach detector confidence per pattern.
 6. Compute plan drift (when execution plan is provided).
 7. Suggest review order (plan-aware when provided).
@@ -148,7 +150,7 @@ AgentDiff is intentionally lightweight: Python stdlib backend + minimal static f
 
 ## Roadmap
 
-- Improve semantic detection with AST-level signature/change tracking
+- Expand AST heuristics beyond current Python-focused strategy
 - Add inline risk explanations directly inside diff hunks
 - Add side-by-side and per-group filtering in UI
 - Add plugin-style detectors for language/framework-specific patterns

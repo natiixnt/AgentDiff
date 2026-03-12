@@ -224,7 +224,7 @@
           ],
           "properties": {
             "agentdiff.risk_score": 9,
-            "agentdiff.change_type": "refactor"
+            "agentdiff.change_type": "behavior_change"
           }
         },
         {

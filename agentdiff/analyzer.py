@@ -10,6 +10,7 @@ from analyzers import (
     build_related_files,
     categorize_file,
     detect_pattern_confidence,
+    infer_ast_change_type,
     infer_change_type,
     suggest_review_order,
 )
@@ -64,7 +65,8 @@ def _file_record(change: FileChange) -> dict[str, Any]:
     pattern_confidence = detect_pattern_confidence(change, category)
     pattern_set = set(pattern_confidence.keys())
     patterns = sorted(pattern_set)
-    change_type = infer_change_type(change, pattern_set)
+    ast_hint = infer_ast_change_type(change, pattern_set)
+    change_type = ast_hint or infer_change_type(change, pattern_set)
 
     record: dict[str, Any] = {
         "path": path,
