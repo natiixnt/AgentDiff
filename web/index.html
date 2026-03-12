@@ -29,7 +29,17 @@
       </section>
 
       <section class="panel grouped" id="groups-panel">
-        <h2>Grouped Diff Viewer</h2>
+        <div class="grouped-header">
+          <h2>Grouped Diff Viewer</h2>
+          <div class="diff-controls">
+            <button id="mode-unified" class="mode-btn" type="button">Unified</button>
+            <button id="mode-split" class="mode-btn" type="button">Side-by-side</button>
+            <label class="sync-label">
+              <input id="sync-scroll" type="checkbox" checked />
+              Sync scroll
+            </label>
+          </div>
+        </div>
         <div id="groups"></div>
       </section>
 

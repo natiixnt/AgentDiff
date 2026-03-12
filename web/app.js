@@ -9,6 +9,8 @@ const appState = {
     visitedFiles: {},
     notes: {},
     activeFilePath: null,
+    diffMode: "unified",
+    syncScroll: true,
   },
   nav: {
     groupEls: [],
@@ -16,6 +18,17 @@ const appState = {
     activeFileIndex: -1,
   },
 };
+
+function defaultUiState() {
+  return {
+    collapsedGroups: {},
+    visitedFiles: {},
+    notes: {},
+    activeFilePath: null,
+    diffMode: "unified",
+    syncScroll: true,
+  };
+}
 
 function makeCard(label, value) {
   const card = document.createElement("div");
@@ -60,10 +73,10 @@ function loadUiState() {
     appState.ui.visitedFiles = parsed.visitedFiles && typeof parsed.visitedFiles === "object"
       ? parsed.visitedFiles
       : {};
-    appState.ui.notes = parsed.notes && typeof parsed.notes === "object"
-      ? parsed.notes
-      : {};
+    appState.ui.notes = parsed.notes && typeof parsed.notes === "object" ? parsed.notes : {};
     appState.ui.activeFilePath = typeof parsed.activeFilePath === "string" ? parsed.activeFilePath : null;
+    appState.ui.diffMode = parsed.diffMode === "split" ? "split" : "unified";
+    appState.ui.syncScroll = parsed.syncScroll !== false;
   } catch (_error) {
     // Ignore corrupt/inaccessible localStorage state and continue with defaults.
   }
@@ -79,6 +92,8 @@ function persistUiState() {
         visitedFiles: appState.ui.visitedFiles,
         notes: appState.ui.notes,
         activeFilePath: appState.ui.activeFilePath,
+        diffMode: appState.ui.diffMode,
+        syncScroll: appState.ui.syncScroll,
       })
     );
   } catch (_error) {
@@ -101,18 +116,14 @@ function resetUiState() {
     // Ignore localStorage failures.
   }
 
-  appState.ui = {
-    collapsedGroups: {},
-    visitedFiles: {},
-    notes: {},
-    activeFilePath: null,
-  };
+  appState.ui = defaultUiState();
 
   if (appState.analysis) {
     renderSummary(appState.analysis);
     renderGroups(appState.analysis);
     renderRiskSidebar(appState.analysis);
     renderRelatedFiles(appState.analysis);
+    applyDiffMode();
   }
 }
 
@@ -174,6 +185,88 @@ function renderSummary(data) {
     li.innerHTML = `<code>${path}</code> changed but not in plan`;
     driftList.appendChild(li);
   }
+}
+
+function parsePatchToAlignedColumns(patchText) {
+  const rowsLeft = [];
+  const rowsRight = [];
+  let pendingRemoved = [];
+  let pendingAdded = [];
+
+  function flushPending() {
+    const maxSize = Math.max(pendingRemoved.length, pendingAdded.length);
+    for (let index = 0; index < maxSize; index += 1) {
+      rowsLeft.push(pendingRemoved[index] || "");
+      rowsRight.push(pendingAdded[index] || "");
+    }
+    pendingRemoved = [];
+    pendingAdded = [];
+  }
+
+  const lines = (patchText || "").split("\n");
+  for (const raw of lines) {
+    const line = raw.replace(/\r$/, "");
+    if (line.startsWith("+") && !line.startsWith("+++")) {
+      pendingAdded.push(line);
+      continue;
+    }
+
+    if (line.startsWith("-") && !line.startsWith("---")) {
+      pendingRemoved.push(line);
+      continue;
+    }
+
+    flushPending();
+    rowsLeft.push(line);
+    rowsRight.push(line);
+  }
+
+  flushPending();
+
+  if (!rowsLeft.length && !rowsRight.length) {
+    return ["No line-level patch available", "No line-level patch available"];
+  }
+
+  return [rowsLeft.join("\n"), rowsRight.join("\n")];
+}
+
+function bindSyncedScroll(leftPane, rightPane) {
+  let syncing = false;
+
+  function mirror(source, target) {
+    if (!appState.ui.syncScroll) return;
+    if (syncing) return;
+
+    const sourceMax = source.scrollHeight - source.clientHeight;
+    const targetMax = target.scrollHeight - target.clientHeight;
+    const ratio = sourceMax > 0 ? source.scrollTop / sourceMax : 0;
+
+    syncing = true;
+    target.scrollTop = targetMax > 0 ? ratio * targetMax : 0;
+    syncing = false;
+  }
+
+  leftPane.addEventListener("scroll", () => mirror(leftPane, rightPane));
+  rightPane.addEventListener("scroll", () => mirror(rightPane, leftPane));
+}
+
+function buildSplitDiff(patchText) {
+  const split = document.createElement("div");
+  split.className = "split-diff";
+
+  const left = document.createElement("pre");
+  left.className = "split-pane left";
+
+  const right = document.createElement("pre");
+  right.className = "split-pane right";
+
+  const [leftText, rightText] = parsePatchToAlignedColumns(patchText);
+  left.textContent = leftText;
+  right.textContent = rightText;
+
+  bindSyncedScroll(left, right);
+  split.append(left, right);
+  return split;
 }
 
 function renderGroups(data) {
@@ -258,9 +351,14 @@ function renderGroups(data) {
         }
       }
 
-      const patch = document.createElement("pre");
-      patch.className = "patch";
-      patch.textContent = (file.patch || "").trim() || "No line-level patch available";
+      const patchText = (file.patch || "").trim() || "No line-level patch available";
+
+      const patchUnified = document.createElement("pre");
+      patchUnified.className = "patch patch-unified";
+      patchUnified.textContent = patchText;
+
+      const patchSplit = buildSplitDiff(patchText);
+      patchSplit.classList.add("patch-split");
 
       const noteWrap = document.createElement("div");
       noteWrap.className = "note-wrap";
@@ -284,7 +382,7 @@ function renderGroups(data) {
       });
 
       noteWrap.append(noteLabel, noteInput);
-      fileCard.append(header, signalRow, patch, noteWrap);
+      fileCard.append(header, signalRow, patchUnified, patchSplit, noteWrap);
       details.appendChild(fileCard);
     }
 
@@ -292,6 +390,7 @@ function renderGroups(data) {
   }
 
   refreshNavigationState();
+  applyDiffMode();
 }
 
 function renderRiskSidebar(data) {
@@ -449,6 +548,26 @@ function toggleActiveGroup() {
   group.open = !group.open;
 }
 
+function applyDiffMode() {
+  const unified = appState.ui.diffMode === "unified";
+
+  for (const patch of document.querySelectorAll(".patch-unified")) {
+    patch.style.display = unified ? "block" : "none";
+  }
+
+  for (const split of document.querySelectorAll(".patch-split")) {
+    split.style.display = unified ? "none" : "grid";
+  }
+
+  const unifiedBtn = document.getElementById("mode-unified");
+  const splitBtn = document.getElementById("mode-split");
+  const syncCheckbox = document.getElementById("sync-scroll");
+
+  unifiedBtn.classList.toggle("active", unified);
+  splitBtn.classList.toggle("active", !unified);
+  syncCheckbox.checked = appState.ui.syncScroll;
+}
+
 function toggleShortcutOverlay(forceVisible) {
   const overlay = document.getElementById("shortcut-overlay");
   const visible =
@@ -462,6 +581,9 @@ function bindControls() {
   const helpButton = document.getElementById("shortcut-help-btn");
   const overlay = document.getElementById("shortcut-overlay");
   const resetButton = document.getElementById("reset-state-btn");
+  const unifiedButton = document.getElementById("mode-unified");
+  const splitButton = document.getElementById("mode-split");
+  const syncCheckbox = document.getElementById("sync-scroll");
 
   helpButton.addEventListener("click", () => toggleShortcutOverlay());
   overlay.addEventListener("click", (event) => {
@@ -474,6 +596,23 @@ function bindControls() {
     const confirmed = window.confirm("Reset saved review state for this diff view?");
     if (!confirmed) return;
     resetUiState();
+  });
+
+  unifiedButton.addEventListener("click", () => {
+    appState.ui.diffMode = "unified";
+    applyDiffMode();
+    schedulePersist();
+  });
+
+  splitButton.addEventListener("click", () => {
+    appState.ui.diffMode = "split";
+    applyDiffMode();
+    schedulePersist();
+  });
+
+  syncCheckbox.addEventListener("change", () => {
+    appState.ui.syncScroll = Boolean(syncCheckbox.checked);
+    schedulePersist();
   });
 
   window.addEventListener("keydown", (event) => {
@@ -522,6 +661,8 @@ function bindControls() {
       toggleActiveGroup();
     }
   });
+
+  applyDiffMode();
 }
 
 async function bootstrap() {

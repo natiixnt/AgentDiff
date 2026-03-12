@@ -19,6 +19,7 @@ AgentDiff gives you a reviewer-oriented view of that output:
 - plan-vs-diff drift flags (planned-but-unchanged, changed-but-unplanned)
 - monorepo-aware workspace grouping
 - related-file context
+- unified/side-by-side diff mode with optional scroll sync
 
 ## Why `git diff` Is Not Enough for Agent Changes
 
