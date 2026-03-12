@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgentDiff</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>AgentDiff</h1>
+        <p>Higher-level review for coding-agent diffs</p>
+      </div>
+      <button id="shortcut-help-btn" class="shortcut-btn" type="button">Keyboard: ?</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel summary" id="summary-panel">
+        <h2>Summary</h2>
+        <div id="summary-cards" class="cards"></div>
+        <h3>Suggested Review Order</h3>
+        <ol id="review-order" class="review-order"></ol>
+        <h3>Plan Drift</h3>
+        <ul id="plan-drift" class="plan-drift"></ul>
+      </section>
+
+      <section class="panel grouped" id="groups-panel">
+        <h2>Grouped Diff Viewer</h2>
+        <div id="groups"></div>
+      </section>
+
+      <aside class="panel risks" id="risk-panel">
+        <h2>Risk Sidebar</h2>
+        <ul id="risk-list" class="risk-list"></ul>
+      </aside>
+
+      <section class="panel related" id="related-panel">
+        <h2>Related Files</h2>
+        <div id="related-files"></div>
+      </section>
+    </main>
+
+    <div id="shortcut-overlay" class="shortcut-overlay hidden" aria-hidden="true">
+      <div class="shortcut-content">
+        <h3>Keyboard Shortcuts</h3>
+        <ul>
+          <li><code>?</code> Open/close this help</li>
+          <li><code>j</code> Next file</li>
+          <li><code>k</code> Previous file</li>
+          <li><code>]</code> Next group</li>
+          <li><code>[</code> Previous group</li>
+          <li><code>o</code> Toggle current group</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

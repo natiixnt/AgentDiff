@@ -1,0 +1,120 @@
+diff --git a/src/legacy/auth_helpers.py b/src/security/auth_utils.py
+similarity index 91%
+rename from src/legacy/auth_helpers.py
+rename to src/security/auth_utils.py
+index e69de29..61fe212 100644
+--- a/src/legacy/auth_helpers.py
++++ b/src/security/auth_utils.py
+@@ -1,8 +1,9 @@
+-import jwt
++import jwt
++from datetime import timezone
+ 
+-def decode_token(token):
+-    return jwt.decode(token, "secret", algorithms=["HS256"])
++def decode_token(token, *, leeway_seconds=0):
++    return jwt.decode(token, "secret", algorithms=["HS256"], leeway=leeway_seconds)
+ 
+-def has_permission(claims, permission):
++def has_permission(claims, permission, *, strict=True):
+     permissions = claims.get("permissions", [])
+-    return permission in permissions
++    return permission in permissions if strict else True
+diff --git a/src/api/user_service.py b/src/api/user_service.py
+index 3fd213f..7a1122a 100644
+--- a/src/api/user_service.py
++++ b/src/api/user_service.py
+@@ -1,16 +1,20 @@
+-from src.legacy.auth_helpers import decode_token, has_permission
++from src.security.auth_utils import decode_token, has_permission
++from src.security.token_validator import validate_scope
+ 
+-def list_users(token, tenant_id):
+-    claims = decode_token(token)
++def list_users(token, tenant_id, include_inactive=False):
++    claims = decode_token(token, leeway_seconds=30)
+     if not has_permission(claims, "users:read"):
+         raise PermissionError("missing users:read")
++    validate_scope(claims, tenant_id)
+ 
+-    query = "SELECT id, email FROM users WHERE tenant_id = ?"
++    query = "SELECT id, email, role FROM users WHERE tenant_id = ?"
++    if not include_inactive:
++        query += " AND active = 1"
+     return db.fetch_all(query, [tenant_id])
+diff --git a/src/security/token_validator.py b/src/security/token_validator.py
+new file mode 100644
+index 0000000..2cc2be3
+--- /dev/null
++++ b/src/security/token_validator.py
+@@ -0,0 +1,34 @@
++def validate_scope(claims, tenant_id):
++    scope = claims.get("scope", "")
++    entries = [entry.strip() for entry in scope.split(" ") if entry.strip()]
++
++    tenant_scopes = [entry for entry in entries if entry.startswith("tenant:")]
++    if not tenant_scopes:
++        raise PermissionError("missing tenant scope")
++
++    expected = f"tenant:{tenant_id}"
++    if expected not in tenant_scopes:
++        raise PermissionError("token does not match tenant")
++
++
++def assert_role(claims, allowed_roles):
++    role = claims.get("role")
++    if role is None:
++        raise PermissionError("missing role")
++
++    if role not in allowed_roles:
++        raise PermissionError("role not allowed")
+diff --git a/config/app.yaml b/config/app.yaml
+index bfe12e1..d3123dd 100644
+--- a/config/app.yaml
++++ b/config/app.yaml
+@@ -1,6 +1,8 @@
+ service:
+   name: user-api
+-  timeout: 4
++  timeout: 8
++  retries: 2
+ auth:
+   jwt_issuer: https://issuer.example.com
++  strict_permissions: true
+   audience: user-api
+diff --git a/migrations/20260312_add_user_role.sql b/migrations/20260312_add_user_role.sql
+new file mode 100644
+index 0000000..4ad19f1
+--- /dev/null
++++ b/migrations/20260312_add_user_role.sql
+@@ -0,0 +1,10 @@
++ALTER TABLE users ADD COLUMN role VARCHAR(24) NOT NULL DEFAULT 'member';
++
++CREATE TABLE role_audit (
++    id INTEGER PRIMARY KEY,
++    user_id INTEGER NOT NULL,
++    role VARCHAR(24) NOT NULL,
++    changed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
++    FOREIGN KEY (user_id) REFERENCES users(id)
++);
+diff --git a/tests/test_user_service.py b/tests/test_user_service.py
+index c881f00..34d8afe 100644
+--- a/tests/test_user_service.py
++++ b/tests/test_user_service.py
+@@ -3,10 +3,14 @@
+ from src.api.user_service import list_users
+ 
+ 
+-def test_list_users_requires_permission(fake_db, token_without_permission):
++def test_list_users_requires_permission(fake_db, token_without_permission, tenant_id):
+     with pytest.raises(PermissionError):
+-        list_users(token_without_permission, "t-1")
++        list_users(token_without_permission, tenant_id)
+ 
+ 
+-def test_list_users_success(fake_db, token_with_permission):
+-    rows = list_users(token_with_permission, "t-1")
++def test_list_users_success(fake_db, token_with_permission, tenant_id):
++    rows = list_users(token_with_permission, tenant_id, include_inactive=False)
++    assert all("role" in row for row in rows)
+     assert len(rows) > 0

@@ -1,0 +1,352 @@
+{
+  "summary": {
+    "total_files": 6,
+    "total_groups": 4,
+    "total_additions": 51,
+    "total_deletions": 14,
+    "categories": {
+      "auth": 2,
+      "source": 1,
+      "config": 1,
+      "schema": 1,
+      "test": 1
+    },
+    "change_types": {
+      "refactor": 1,
+      "behavior_change": 3,
+      "config_change": 1,
+      "added": 1
+    },
+    "risk_levels": {
+      "high": 3,
+      "medium": 3
+    }
+  },
+  "groups": [
+    {
+      "id": "auth",
+      "title": "Auth & Access Control",
+      "files": [
+        "src/api/user_service.py",
+        "src/security/auth_utils.py",
+        "src/security/token_validator.py"
+      ],
+      "risk": "high",
+      "risk_score": 9,
+      "change_types": {
+        "refactor": 1,
+        "behavior_change": 2
+      }
+    },
+    {
+      "id": "schema",
+      "title": "Schema & Data Contract",
+      "files": [
+        "migrations/20260312_add_user_role.sql"
+      ],
+      "risk": "medium",
+      "risk_score": 5,
+      "change_types": {
+        "added": 1
+      }
+    },
+    {
+      "id": "config",
+      "title": "Configuration & Runtime",
+      "files": [
+        "config/app.yaml"
+      ],
+      "risk": "medium",
+      "risk_score": 4,
+      "change_types": {
+        "config_change": 1
+      }
+    },
+    {
+      "id": "tests",
+      "title": "Tests",
+      "files": [
+        "tests/test_user_service.py"
+      ],
+      "risk": "medium",
+      "risk_score": 4,
+      "change_types": {
+        "behavior_change": 1
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "src/api/user_service.py",
+      "old_path": "src/api/user_service.py",
+      "new_path": "src/api/user_service.py",
+      "status": "modified",
+      "category": "source",
+      "patterns": [
+        "auth_related",
+        "behavior_change",
+        "signature_change"
+      ],
+      "change_type": "behavior_change",
+      "change_facets": [
+        "behavior_change"
+      ],
+      "additions": 8,
+      "deletions": 4,
+      "patch": "diff --git a/src/api/user_service.py b/src/api/user_service.py\nindex 3fd213f..7a1122a 100644\n--- a/src/api/user_service.py\n+++ b/src/api/user_service.py\n@@ -1,16 +1,20 @@\n-from src.legacy.auth_helpers import decode_token, has_permission\n+from src.security.auth_utils import decode_token, has_permission\n+from src.security.token_validator import validate_scope\n \n-def list_users(token, tenant_id):\n-    claims = decode_token(token)\n+def list_users(token, tenant_id, include_inactive=False):\n+    claims = decode_token(token, leeway_seconds=30)\n     if not has_permission(claims, \"users:read\"):\n         raise PermissionError(\"missing users:read\")\n+    validate_scope(claims, tenant_id)\n \n-    query = \"SELECT id, email FROM users WHERE tenant_id = ?\"\n+    query = \"SELECT id, email, role FROM users WHERE tenant_id = ?\"\n+    if not include_inactive:\n+        query += \" AND active = 1\"\n     return db.fetch_all(query, [tenant_id])\n",
+      "metadata": {
+        "index": "3fd213f..7a1122a 100644"
+      },
+      "risk_score": 9,
+      "risk_level": "high",
+      "risk_reasons": [
+        "Touches authentication/authorization code",
+        "Function/method signatures changed",
+        "Contains executable behavior changes"
+      ],
+      "group_id": "auth",
+      "related_files": []
+    },
+    {
+      "path": "src/security/auth_utils.py",
+      "old_path": "src/legacy/auth_helpers.py",
+      "new_path": "src/security/auth_utils.py",
+      "status": "renamed",
+      "category": "auth",
+      "patterns": [
+        "auth_related",
+        "behavior_change",
+        "rename",
+        "signature_change"
+      ],
+      "change_type": "refactor",
+      "change_facets": [
+        "rename",
+        "refactor",
+        "behavior_change"
+      ],
+      "additions": 6,
+      "deletions": 5,
+      "patch": "diff --git a/src/legacy/auth_helpers.py b/src/security/auth_utils.py\nsimilarity index 91%\nrename from src/legacy/auth_helpers.py\nrename to src/security/auth_utils.py\nindex e69de29..61fe212 100644\n--- a/src/legacy/auth_helpers.py\n+++ b/src/security/auth_utils.py\n@@ -1,8 +1,9 @@\n-import jwt\n+import jwt\n+from datetime import timezone\n \n-def decode_token(token):\n-    return jwt.decode(token, \"secret\", algorithms=[\"HS256\"])\n+def decode_token(token, *, leeway_seconds=0):\n+    return jwt.decode(token, \"secret\", algorithms=[\"HS256\"], leeway=leeway_seconds)\n \n-def has_permission(claims, permission):\n+def has_permission(claims, permission, *, strict=True):\n     permissions = claims.get(\"permissions\", [])\n-    return permission in permissions\n+    return permission in permissions if strict else True\n",
+      "metadata": {
+        "similarity_index": "91%",
+        "index": "e69de29..61fe212 100644"
+      },
+      "risk_score": 9,
+      "risk_level": "high",
+      "risk_reasons": [
+        "Touches authentication/authorization code",
+        "Function/method signatures changed",
+        "Contains executable behavior changes"
+      ],
+      "group_id": "auth",
+      "related_files": [
+        "src/security/token_validator.py"
+      ]
+    },
+    {
+      "path": "src/security/token_validator.py",
+      "old_path": "",
+      "new_path": "src/security/token_validator.py",
+      "status": "added",
+      "category": "auth",
+      "patterns": [
+        "auth_related",
+        "behavior_change",
+        "signature_change"
+      ],
+      "change_type": "behavior_change",
+      "change_facets": [
+        "behavior_change"
+      ],
+      "additions": 20,
+      "deletions": 0,
+      "patch": "diff --git a/src/security/token_validator.py b/src/security/token_validator.py\nnew file mode 100644\nindex 0000000..2cc2be3\n--- /dev/null\n+++ b/src/security/token_validator.py\n@@ -0,0 +1,34 @@\n+def validate_scope(claims, tenant_id):\n+    scope = claims.get(\"scope\", \"\")\n+    entries = [entry.strip() for entry in scope.split(\" \") if entry.strip()]\n+\n+    tenant_scopes = [entry for entry in entries if entry.startswith(\"tenant:\")]\n+    if not tenant_scopes:\n+        raise PermissionError(\"missing tenant scope\")\n+\n+    expected = f\"tenant:{tenant_id}\"\n+    if expected not in tenant_scopes:\n+        raise PermissionError(\"token does not match tenant\")\n+\n+\n+def assert_role(claims, allowed_roles):\n+    role = claims.get(\"role\")\n+    if role is None:\n+        raise PermissionError(\"missing role\")\n+\n+    if role not in allowed_roles:\n+        raise PermissionError(\"role not allowed\")\n",
+      "metadata": {
+        "index": "0000000..2cc2be3"
+      },
+      "risk_score": 9,
+      "risk_level": "high",
+      "risk_reasons": [
+        "Touches authentication/authorization code",
+        "Function/method signatures changed",
+        "Contains executable behavior changes"
+      ],
+      "group_id": "auth",
+      "related_files": [
+        "src/security/auth_utils.py"
+      ]
+    },
+    {
+      "path": "migrations/20260312_add_user_role.sql",
+      "old_path": "",
+      "new_path": "migrations/20260312_add_user_role.sql",
+      "status": "added",
+      "category": "schema",
+      "patterns": [
+        "schema_change"
+      ],
+      "change_type": "added",
+      "change_facets": [
+        "added"
+      ],
+      "additions": 9,
+      "deletions": 0,
+      "patch": "diff --git a/migrations/20260312_add_user_role.sql b/migrations/20260312_add_user_role.sql\nnew file mode 100644\nindex 0000000..4ad19f1\n--- /dev/null\n+++ b/migrations/20260312_add_user_role.sql\n@@ -0,0 +1,10 @@\n+ALTER TABLE users ADD COLUMN role VARCHAR(24) NOT NULL DEFAULT 'member';\n+\n+CREATE TABLE role_audit (\n+    id INTEGER PRIMARY KEY,\n+    user_id INTEGER NOT NULL,\n+    role VARCHAR(24) NOT NULL,\n+    changed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n+    FOREIGN KEY (user_id) REFERENCES users(id)\n+);\n",
+      "metadata": {
+        "index": "0000000..4ad19f1"
+      },
+      "risk_score": 5,
+      "risk_level": "medium",
+      "risk_reasons": [
+        "Modifies schema or migration surface"
+      ],
+      "group_id": "schema",
+      "related_files": []
+    },
+    {
+      "path": "config/app.yaml",
+      "old_path": "config/app.yaml",
+      "new_path": "config/app.yaml",
+      "status": "modified",
+      "category": "config",
+      "patterns": [
+        "config_change"
+      ],
+      "change_type": "config_change",
+      "change_facets": [
+        "config_change"
+      ],
+      "additions": 3,
+      "deletions": 1,
+      "patch": "diff --git a/config/app.yaml b/config/app.yaml\nindex bfe12e1..d3123dd 100644\n--- a/config/app.yaml\n+++ b/config/app.yaml\n@@ -1,6 +1,8 @@\n service:\n   name: user-api\n-  timeout: 4\n+  timeout: 8\n+  retries: 2\n auth:\n   jwt_issuer: https://issuer.example.com\n+  strict_permissions: true\n   audience: user-api\n",
+      "metadata": {
+        "index": "bfe12e1..d3123dd 100644"
+      },
+      "risk_score": 4,
+      "risk_level": "medium",
+      "risk_reasons": [
+        "Changes runtime/build configuration"
+      ],
+      "group_id": "config",
+      "related_files": []
+    },
+    {
+      "path": "tests/test_user_service.py",
+      "old_path": "tests/test_user_service.py",
+      "new_path": "tests/test_user_service.py",
+      "status": "modified",
+      "category": "test",
+      "patterns": [
+        "behavior_change",
+        "signature_change"
+      ],
+      "change_type": "behavior_change",
+      "change_facets": [
+        "behavior_change"
+      ],
+      "additions": 5,
+      "deletions": 4,
+      "patch": "diff --git a/tests/test_user_service.py b/tests/test_user_service.py\nindex c881f00..34d8afe 100644\n--- a/tests/test_user_service.py\n+++ b/tests/test_user_service.py\n@@ -3,10 +3,14 @@\n from src.api.user_service import list_users\n \n \n-def test_list_users_requires_permission(fake_db, token_without_permission):\n+def test_list_users_requires_permission(fake_db, token_without_permission, tenant_id):\n     with pytest.raises(PermissionError):\n-        list_users(token_without_permission, \"t-1\")\n+        list_users(token_without_permission, tenant_id)\n \n \n-def test_list_users_success(fake_db, token_with_permission):\n-    rows = list_users(token_with_permission, \"t-1\")\n+def test_list_users_success(fake_db, token_with_permission, tenant_id):\n+    rows = list_users(token_with_permission, tenant_id, include_inactive=False)\n+    assert all(\"role\" in row for row in rows)\n     assert len(rows) > 0\n",
+      "metadata": {
+        "index": "c881f00..34d8afe 100644"
+      },
+      "risk_score": 4,
+      "risk_level": "medium",
+      "risk_reasons": [
+        "Function/method signatures changed",
+        "Contains executable behavior changes",
+        "Primarily non-production surface"
+      ],
+      "group_id": "tests",
+      "related_files": []
+    }
+  ],
+  "review_order": [
+    {
+      "path": "src/security/auth_utils.py",
+      "reason": "Planned step: Harden token and permission checks",
+      "risk": "high",
+      "risk_score": 9
+    },
+    {
+      "path": "src/security/token_validator.py",
+      "reason": "Planned step: Harden token and permission checks",
+      "risk": "high",
+      "risk_score": 9
+    },
+    {
+      "path": "src/api/user_service.py",
+      "reason": "Planned step: Harden token and permission checks",
+      "risk": "high",
+      "risk_score": 9
+    },
+    {
+      "path": "migrations/20260312_add_user_role.sql",
+      "reason": "Planned step: Enable role support",
+      "risk": "medium",
+      "risk_score": 5
+    },
+    {
+      "path": "tests/test_user_service.py",
+      "reason": "Planned step: Enable role support",
+      "risk": "medium",
+      "risk_score": 4
+    },
+    {
+      "path": "config/app.yaml",
+      "reason": "Planned step: Tune runtime config",
+      "risk": "medium",
+      "risk_score": 4
+    }
+  ],
+  "plan_drift": {
+    "has_plan": true,
+    "planned_files": [
+      "src/security/auth_utils.py",
+      "src/security/token_validator.py",
+      "src/api/user_service.py",
+      "migrations/20260312_add_user_role.sql",
+      "tests/test_user_service.py",
+      "config/app.yaml"
+    ],
+    "planned_but_unchanged": [],
+    "changed_but_unplanned": [],
+    "planned_but_unchanged_count": 0,
+    "changed_but_unplanned_count": 0
+  },
+  "ignored": {
+    "patterns": [],
+    "files": [],
+    "count": 0
+  },
+  "plan": {
+    "steps": [
+      {
+        "name": "Harden token and permission checks",
+        "files": [
+          "src/security/auth_utils.py",
+          "src/security/token_validator.py",
+          "src/api/user_service.py"
+        ],
+        "intent": "Tighten auth scope validation"
+      },
+      {
+        "name": "Enable role support",
+        "files": [
+          "migrations/20260312_add_user_role.sql",
+          "src/api/user_service.py",
+          "tests/test_user_service.py"
+        ],
+        "intent": "Persist role and expose in list endpoint"
+      },
+      {
+        "name": "Tune runtime config",
+        "files": [
+          "config/app.yaml"
+        ],
+        "intent": "Increase timeout and retries"
+      }
+    ]
+  }
+}

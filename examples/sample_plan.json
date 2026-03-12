@@ -1,0 +1,29 @@
+{
+  "steps": [
+    {
+      "name": "Harden token and permission checks",
+      "files": [
+        "src/security/auth_utils.py",
+        "src/security/token_validator.py",
+        "src/api/user_service.py"
+      ],
+      "intent": "Tighten auth scope validation"
+    },
+    {
+      "name": "Enable role support",
+      "files": [
+        "migrations/20260312_add_user_role.sql",
+        "src/api/user_service.py",
+        "tests/test_user_service.py"
+      ],
+      "intent": "Persist role and expose in list endpoint"
+    },
+    {
+      "name": "Tune runtime config",
+      "files": [
+        "config/app.yaml"
+      ],
+      "intent": "Increase timeout and retries"
+    }
+  ]
+}

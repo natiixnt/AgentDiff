@@ -1,0 +1,344 @@
+:root {
+  --bg: #f7f5ef;
+  --panel: #ffffff;
+  --text: #1b2028;
+  --muted: #5d6673;
+  --line: #d9dde5;
+  --accent: #0b6e4f;
+  --high: #8f1d21;
+  --medium: #9c6a0c;
+  --low: #14516e;
+  --shadow: 0 10px 20px rgba(16, 32, 53, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, #fbe7cf 0%, transparent 32%),
+    radial-gradient(circle at bottom left, #e7f3f8 0%, transparent 38%),
+    var(--bg);
+}
+
+.topbar {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(120deg, #fffdf8, #f3f8ff);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.65rem;
+  letter-spacing: 0.02em;
+}
+
+.topbar p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+.shortcut-btn {
+  background: #11273d;
+  color: #f2f8ff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.layout {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "summary risks"
+    "grouped risks"
+    "related related";
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.summary {
+  grid-area: summary;
+}
+
+.grouped {
+  grid-area: grouped;
+}
+
+.risks {
+  grid-area: risks;
+}
+
+.related {
+  grid-area: related;
+}
+
+h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.15rem;
+}
+
+h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.65rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem;
+  background: #fcfcff;
+}
+
+.card-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.card-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.review-order {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.review-order li {
+  margin-bottom: 0.5rem;
+}
+
+.plan-drift {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.plan-drift li {
+  margin-bottom: 0.4rem;
+}
+
+.group {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.group > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.7rem 0.85rem;
+  background: #f6f9ff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.group-title {
+  font-weight: 700;
+}
+
+.group-meta {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.file-card {
+  border-top: 1px solid var(--line);
+  padding: 0.65rem 0.85rem;
+}
+
+.file-card.active {
+  outline: 2px solid #2f7dd6;
+  outline-offset: -2px;
+  background: #f8fbff;
+}
+
+.file-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+  align-items: center;
+  margin-bottom: 0.45rem;
+}
+
+.file-path {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 0.73rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  padding: 0.1rem 0.5rem;
+  background: #fff;
+}
+
+.badge.high {
+  color: var(--high);
+  border-color: #f2b9bc;
+  background: #fff2f2;
+}
+
+.badge.medium {
+  color: var(--medium);
+  border-color: #ecd4a8;
+  background: #fffbef;
+}
+
+.badge.low {
+  color: var(--low);
+  border-color: #b9d9e6;
+  background: #f2fbff;
+}
+
+.patch {
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid #232a34;
+  background: #111827;
+  color: #d1d8e5;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  max-height: 220px;
+  overflow: auto;
+  padding: 0.5rem;
+}
+
+.risk-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.risk-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.risk-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  word-break: break-word;
+}
+
+.risk-reasons {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 0.35rem;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.65rem;
+}
+
+.related-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem;
+}
+
+.related-path {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  margin: 0 0 0.45rem;
+}
+
+.related-links {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.shortcut-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 24, 38, 0.56);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 20;
+}
+
+.shortcut-overlay.hidden {
+  display: none;
+}
+
+.shortcut-content {
+  max-width: 480px;
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: #fff;
+  padding: 1rem;
+}
+
+.shortcut-content h3 {
+  margin: 0 0 0.6rem;
+}
+
+.shortcut-content ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.shortcut-content li {
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "summary"
+      "risks"
+      "grouped"
+      "related";
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
