@@ -186,6 +186,8 @@ Pattern confidence values are heuristic probabilities in the range `0.00` to `1.
 - `0.40 - 0.64`: weak signal, review carefully
 - `< 0.40`: low-confidence hint
 
+UI default confidence threshold is `0.60` (adjustable with the slider in grouped diff controls).
+
 These scores are intended to prioritize human review, not to act as hard truth.
 
 ## CI Example (SARIF)

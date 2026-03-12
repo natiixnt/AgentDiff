@@ -51,6 +51,11 @@
           <select id="category-filter">
             <option value="all">Category: all</option>
           </select>
+          <label class="threshold-label" for="confidence-threshold">
+            Confidence
+            <input id="confidence-threshold" type="range" min="0" max="1" step="0.05" value="0.6" />
+            <span id="confidence-threshold-value">0.60</span>
+          </label>
           <span id="match-count" class="match-count">0 groups · 0 files</span>
         </div>
         <div id="groups"></div>

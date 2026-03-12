@@ -138,7 +138,12 @@ h3 {
 
 .search-controls {
   display: grid;
-  grid-template-columns: minmax(220px, 1.5fr) minmax(120px, 0.7fr) minmax(120px, 0.7fr) auto;
+  grid-template-columns:
+    minmax(220px, 1.5fr)
+    minmax(120px, 0.7fr)
+    minmax(120px, 0.7fr)
+    minmax(180px, 1fr)
+    auto;
   gap: 0.45rem;
   margin-bottom: 0.75rem;
   align-items: center;
@@ -159,6 +164,25 @@ h3 {
   color: var(--muted);
   font-weight: 600;
   white-space: nowrap;
+}
+
+.threshold-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.threshold-label input[type="range"] {
+  width: 100%;
+}
+
+#confidence-threshold-value {
+  min-width: 2.8rem;
+  text-align: right;
+  color: #203148;
 }
 
 .mode-btn {

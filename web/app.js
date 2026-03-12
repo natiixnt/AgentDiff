@@ -16,6 +16,7 @@ const appState = {
       risk: "all",
       category: "all",
     },
+    confidenceThreshold: 0.6,
   },
   nav: {
     groupEls: [],
@@ -37,6 +38,7 @@ function defaultUiState() {
       risk: "all",
       category: "all",
     },
+    confidenceThreshold: 0.6,
   };
 }
 
@@ -98,6 +100,11 @@ function loadUiState() {
           : "all",
       category: typeof parsedFilters.category === "string" ? parsedFilters.category : "all",
     };
+    const parsedThreshold = Number(parsed.confidenceThreshold);
+    appState.ui.confidenceThreshold =
+      Number.isFinite(parsedThreshold) && parsedThreshold >= 0 && parsedThreshold <= 1
+        ? parsedThreshold
+        : 0.6;
   } catch (_error) {
     // Ignore corrupt/inaccessible localStorage state and continue with defaults.
   }
@@ -116,6 +123,7 @@ function persistUiState() {
         diffMode: appState.ui.diffMode,
         syncScroll: appState.ui.syncScroll,
         filters: appState.ui.filters,
+        confidenceThreshold: appState.ui.confidenceThreshold,
       })
     );
   } catch (_error) {
@@ -149,6 +157,19 @@ function resetUiState() {
     renderRelatedFiles(appState.analysis);
     applyDiffMode();
   }
+}
+
+function visiblePatternEntries(file) {
+  const threshold = Number(appState.ui.confidenceThreshold || 0);
+  const confidence = file.pattern_confidence || {};
+  const entries = [];
+  for (const pattern of Object.keys(confidence).sort()) {
+    const value = Number(confidence[pattern]);
+    if (!Number.isFinite(value)) continue;
+    if (value < threshold) continue;
+    entries.push([pattern, value]);
+  }
+  return entries;
 }
 
 function signalLabel(pattern, confidence) {
@@ -400,16 +421,19 @@ function renderGroups(data) {
 
       const signalRow = document.createElement("div");
       signalRow.className = "pattern-signals";
-      const confidence = file.pattern_confidence || {};
-      const patternNames = Object.keys(confidence).sort();
-      if (patternNames.length) {
-        for (const pattern of patternNames) {
-          const value = Number(confidence[pattern]);
+      const visiblePatterns = visiblePatternEntries(file);
+      if (visiblePatterns.length) {
+        for (const [pattern, value] of visiblePatterns) {
           const signal = document.createElement("span");
           signal.className = "signal";
-          signal.textContent = signalLabel(pattern, Number.isFinite(value) ? value : 0);
+          signal.textContent = signalLabel(pattern, value);
           signalRow.appendChild(signal);
         }
+      } else {
+        const signal = document.createElement("span");
+        signal.className = "signal";
+        signal.textContent = "No signals above threshold";
+        signalRow.appendChild(signal);
       }
 
       const patchText = (file.patch || "").trim() || "No line-level patch available";
@@ -472,7 +496,14 @@ function renderRiskSidebar(data) {
 
     const reasons = document.createElement("div");
     reasons.className = "risk-reasons";
-    reasons.textContent = (file.risk_reasons || []).join("; ") || "No major risk signals.";
+    const visibleSignals = visiblePatternEntries(file).map(([pattern, value]) =>
+      signalLabel(pattern, value)
+    );
+    const reasonsText = (file.risk_reasons || []).join("; ") || "No major risk signals.";
+    const signalsText = visibleSignals.length
+      ? `Signals >= ${appState.ui.confidenceThreshold.toFixed(2)}: ${visibleSignals.join(", ")}`
+      : `Signals >= ${appState.ui.confidenceThreshold.toFixed(2)}: none`;
+    reasons.textContent = `${reasonsText}; ${signalsText}`;
 
     li.append(title, badge, reasons);
     root.appendChild(li);
@@ -661,15 +692,20 @@ function syncFilterControls() {
   const searchInput = document.getElementById("group-search");
   const riskFilter = document.getElementById("risk-filter");
   const categoryFilter = document.getElementById("category-filter");
+  const thresholdInput = document.getElementById("confidence-threshold");
+  const thresholdValue = document.getElementById("confidence-threshold-value");
 
   searchInput.value = appState.ui.filters.query;
   riskFilter.value = appState.ui.filters.risk;
   categoryFilter.value = appState.ui.filters.category;
+  thresholdInput.value = String(appState.ui.confidenceThreshold);
+  thresholdValue.textContent = appState.ui.confidenceThreshold.toFixed(2);
 }
 
 function applyFiltersAndRender() {
   if (!appState.analysis) return;
   renderGroups(appState.analysis);
+  renderRiskSidebar(appState.analysis);
   schedulePersist();
 }
 
@@ -683,6 +719,8 @@ function bindControls() {
   const searchInput = document.getElementById("group-search");
   const riskFilter = document.getElementById("risk-filter");
   const categoryFilter = document.getElementById("category-filter");
+  const thresholdInput = document.getElementById("confidence-threshold");
+  const thresholdValue = document.getElementById("confidence-threshold-value");
 
   helpButton.addEventListener("click", () => toggleShortcutOverlay());
   overlay.addEventListener("click", (event) => {
@@ -726,6 +764,13 @@ function bindControls() {
 
   categoryFilter.addEventListener("change", () => {
     appState.ui.filters.category = categoryFilter.value;
+    applyFiltersAndRender();
+  });
+
+  thresholdInput.addEventListener("input", () => {
+    const value = Number(thresholdInput.value);
+    appState.ui.confidenceThreshold = Number.isFinite(value) ? value : 0.6;
+    thresholdValue.textContent = appState.ui.confidenceThreshold.toFixed(2);
     applyFiltersAndRender();
   });
 
