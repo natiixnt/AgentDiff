@@ -87,6 +87,18 @@ Analyze current local changes:
 agentdiff analyze
 ```
 
+Analyze a commit range directly:
+
+```bash
+agentdiff analyze --range main..HEAD
+```
+
+Or with explicit start/end revisions:
+
+```bash
+agentdiff analyze --from main --to feature-branch
+```
+
 Use ignore patterns from `.agentdiffignore` automatically (or pass a custom path):
 
 ```bash

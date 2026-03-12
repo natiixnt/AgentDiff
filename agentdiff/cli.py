@@ -14,14 +14,35 @@ from .sarif import analysis_to_sarif
 from .webserver import run_server
 
 
-def _read_text(path: str | None) -> str:
+def _build_git_diff_command(
+    diff_range: str | None,
+    from_ref: str | None,
+    to_ref: str | None,
+) -> list[str]:
+    if diff_range and (from_ref or to_ref):
+        raise ValueError("Use either --range or --from/--to, not both")
+    if to_ref and not from_ref:
+        raise ValueError("--to requires --from")
+
+    command = ["git", "diff", "--find-renames"]
+    if diff_range:
+        command.append(diff_range)
+    elif from_ref and to_ref:
+        command.append(f"{from_ref}..{to_ref}")
+    elif from_ref:
+        command.append(from_ref)
+    return command
+
+
+def _read_text(
+    path: str | None,
+    diff_range: str | None = None,
+    from_ref: str | None = None,
+    to_ref: str | None = None,
+) -> str:
     if path is None:
-        completed = subprocess.run(
-            ["git", "diff", "--find-renames"],
-            check=False,
-            capture_output=True,
-            text=True,
-        )
+        command = _build_git_diff_command(diff_range, from_ref, to_ref)
+        completed = subprocess.run(command, check=False, capture_output=True, text=True)
         if completed.returncode != 0:
             raise RuntimeError(completed.stderr.strip() or "Failed to run git diff")
         return completed.stdout
@@ -60,6 +81,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     analyze_parser = subparsers.add_parser("analyze", help="Analyze a diff and print JSON output")
     analyze_parser.add_argument("--diff", help="Path to a git diff file. Defaults to current `git diff`.")
+    analyze_parser.add_argument("--range", dest="diff_range", help="Git revision range (example: main..HEAD)")
+    analyze_parser.add_argument("--from", dest="from_ref", help="Start revision for git diff")
+    analyze_parser.add_argument("--to", dest="to_ref", help="End revision for git diff")
     analyze_parser.add_argument("--plan", help="Optional execution plan JSON path")
     analyze_parser.add_argument("--output", help="Optional output file for analysis JSON")
     analyze_parser.add_argument(
@@ -75,6 +99,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     serve_parser = subparsers.add_parser("serve", help="Start local web UI for diff analysis")
     serve_parser.add_argument("--diff", help="Path to a git diff file. Defaults to current `git diff`.")
+    serve_parser.add_argument("--range", dest="diff_range", help="Git revision range (example: main..HEAD)")
+    serve_parser.add_argument("--from", dest="from_ref", help="Start revision for git diff")
+    serve_parser.add_argument("--to", dest="to_ref", help="End revision for git diff")
     serve_parser.add_argument("--plan", help="Optional execution plan JSON path")
     serve_parser.add_argument(
         "--ignore-file",
@@ -96,7 +123,12 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         if args.command == "analyze":
-            diff_text = _read_text(args.diff)
+            diff_text = _read_text(
+                args.diff,
+                diff_range=args.diff_range,
+                from_ref=args.from_ref,
+                to_ref=args.to_ref,
+            )
             plan_data = _read_plan(args.plan)
             ignore_patterns = _resolve_ignore_patterns(args.ignore_file)
             result = analyze_diff(diff_text, plan_data, ignore_patterns=ignore_patterns)
@@ -108,7 +140,12 @@ def main(argv: list[str] | None = None) -> int:
             if args.analysis:
                 analysis = json.loads(Path(args.analysis).read_text(encoding="utf-8"))
             else:
-                diff_text = _read_text(args.diff)
+                diff_text = _read_text(
+                    args.diff,
+                    diff_range=args.diff_range,
+                    from_ref=args.from_ref,
+                    to_ref=args.to_ref,
+                )
                 plan_data = _read_plan(args.plan)
                 ignore_patterns = _resolve_ignore_patterns(args.ignore_file)
                 analysis = analyze_diff(diff_text, plan_data, ignore_patterns=ignore_patterns)
