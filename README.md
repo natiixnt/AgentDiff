@@ -117,6 +117,12 @@ Export SARIF for CI annotation pipelines:
 agentdiff analyze --diff examples/sample.diff --format sarif --output agentdiff.sarif.json
 ```
 
+Generate a PR-ready markdown summary:
+
+```bash
+agentdiff analyze --diff examples/sample.diff --plan examples/sample_plan.json --format markdown --output agentdiff-summary.md
+```
+
 Serve the web app from precomputed analysis:
 
 ```bash

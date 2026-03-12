@@ -9,6 +9,7 @@ from typing import Any
 
 from .analyzer import analyze_diff
 from .ignore import read_ignore_patterns
+from .markdown import analysis_to_markdown
 from .plan_validator import validate_execution_plan
 from .sarif import analysis_to_sarif
 from .webserver import run_server
@@ -64,12 +65,17 @@ def _resolve_ignore_patterns(ignore_file_path: str | None) -> list[str]:
     return read_ignore_patterns()
 
 
-def _write_output(payload: dict[str, Any], output_path: str | None) -> None:
-    rendered = json.dumps(payload, indent=2)
-    if output_path:
-        Path(output_path).write_text(rendered + "\n", encoding="utf-8")
+def _write_output(payload: dict[str, Any] | str, output_path: str | None) -> None:
+    if isinstance(payload, str):
+        rendered = payload
     else:
-        print(rendered)
+        rendered = json.dumps(payload, indent=2)
+    if not rendered.endswith("\n"):
+        rendered += "\n"
+    if output_path:
+        Path(output_path).write_text(rendered, encoding="utf-8")
+    else:
+        print(rendered, end="")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -88,7 +94,7 @@ def build_parser() -> argparse.ArgumentParser:
     analyze_parser.add_argument("--output", help="Optional output file for analysis JSON")
     analyze_parser.add_argument(
         "--format",
-        choices=["json", "sarif"],
+        choices=["json", "sarif", "markdown"],
         default="json",
         help="Output format for analyze command (default: json)",
     )
@@ -132,7 +138,12 @@ def main(argv: list[str] | None = None) -> int:
             plan_data = _read_plan(args.plan)
             ignore_patterns = _resolve_ignore_patterns(args.ignore_file)
             result = analyze_diff(diff_text, plan_data, ignore_patterns=ignore_patterns)
-            output_payload = analysis_to_sarif(result) if args.format == "sarif" else result
+            if args.format == "sarif":
+                output_payload: dict[str, Any] | str = analysis_to_sarif(result)
+            elif args.format == "markdown":
+                output_payload = analysis_to_markdown(result)
+            else:
+                output_payload = result
             _write_output(output_payload, args.output)
             return 0
 
