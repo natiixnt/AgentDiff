@@ -60,5 +60,15 @@ def assess_risk(file_data: dict[str, Any]) -> tuple[int, str, list[str]]:
         score -= 1
         reasons.append("Primarily non-production surface")
 
+    plugin_delta = int(file_data.get("plugin_risk_score_delta", 0))
+    if plugin_delta > 0:
+        score += plugin_delta
+
+    plugin_reasons = file_data.get("plugin_risk_reasons", [])
+    if isinstance(plugin_reasons, list):
+        for reason in plugin_reasons:
+            if isinstance(reason, str) and reason.strip():
+                reasons.append(reason.strip())
+
     score = max(1, min(10, score))
     return score, _level(score), reasons

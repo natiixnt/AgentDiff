@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    {
+      "name": "todo-detector",
+      "path": "todo_detector.py"
+    }
+  ]
+}

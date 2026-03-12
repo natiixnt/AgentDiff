@@ -18,6 +18,7 @@ from analyzers import (
 from .diff_parser import parse_git_diff
 from .ignore import should_ignore_change
 from .models import FileChange
+from .plugins import LoadedPlugin
 
 
 def _change_facets(change_type: str, patterns: set[str]) -> list[str]:
@@ -104,6 +105,56 @@ def _summary(files: list[dict[str, Any]], groups: list[dict[str, Any]]) -> dict[
     }
 
 
+def _apply_plugins(files: list[dict[str, Any]], plugins: list[LoadedPlugin]) -> None:
+    if not plugins:
+        return
+
+    for file_data in files:
+        file_data.setdefault("patterns", [])
+        file_data.setdefault("pattern_confidence", {})
+        file_data.setdefault("plugin_risk_reasons", [])
+        file_data.setdefault("plugin_risk_score_delta", 0)
+
+        for plugin in plugins:
+            try:
+                output = plugin.analyze_file(dict(file_data))
+            except Exception as exc:
+                file_data["plugin_risk_reasons"].append(f"Plugin `{plugin.name}` failed: {exc}")
+                continue
+
+            if not isinstance(output, dict):
+                continue
+
+            raw_patterns = output.get("patterns", [])
+            if isinstance(raw_patterns, list):
+                for item in raw_patterns:
+                    if isinstance(item, str):
+                        pattern_name = item
+                        confidence = 0.6
+                    elif isinstance(item, dict):
+                        pattern_name = str(item.get("name", "")).strip()
+                        confidence = float(item.get("confidence", 0.6))
+                    else:
+                        continue
+
+                    if not pattern_name:
+                        continue
+
+                    file_data["patterns"].append(pattern_name)
+                    current = float(file_data["pattern_confidence"].get(pattern_name, 0.0))
+                    file_data["pattern_confidence"][pattern_name] = round(max(current, confidence), 2)
+
+            raw_reasons = output.get("risk_reasons", [])
+            if isinstance(raw_reasons, list):
+                for reason in raw_reasons:
+                    if isinstance(reason, str) and reason.strip():
+                        file_data["plugin_risk_reasons"].append(reason.strip())
+
+            delta = output.get("risk_score_delta", 0)
+            if isinstance(delta, (int, float)) and delta > 0:
+                file_data["plugin_risk_score_delta"] = int(file_data["plugin_risk_score_delta"]) + int(delta)
+
+
 def _collect_plan_files(plan_data: dict[str, Any] | None) -> list[str]:
     if not isinstance(plan_data, dict):
         return []
@@ -163,6 +214,7 @@ def analyze_diff(
     plan_data: dict[str, Any] | None = None,
     ignore_patterns: list[str] | None = None,
     secret_ignore_patterns: list[str] | None = None,
+    plugins: list[LoadedPlugin] | None = None,
 ) -> dict[str, Any]:
     parsed = parse_git_diff(diff_text)
     ignored_patterns = list(ignore_patterns or [])
@@ -180,6 +232,7 @@ def analyze_diff(
     files = [_file_record(change, secret_ignore_patterns=secret_ignore_patterns) for change in parsed]
 
     _augment_extractions(files)
+    _apply_plugins(files, plugins or [])
 
     for file_data in files:
         # Keep pattern list stable and unique in final output.

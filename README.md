@@ -112,6 +112,12 @@ Tune secret detector false positives with `.agentdiff-secrets-ignore` (or custom
 agentdiff analyze --secrets-ignore-file .agentdiff-secrets-ignore
 ```
 
+Enable custom detector plugins with config:
+
+```bash
+agentdiff analyze --plugins-config examples/plugins/plugins.example.json
+```
+
 Analyze a specific diff and write JSON output:
 
 ```bash
@@ -227,6 +233,35 @@ Quick threshold check (CI-friendly):
 ```
 
 Current baseline snapshot is tracked in `benchmarks/BASELINE.md`.
+
+## Plugins
+
+Plugin config format (`.agentdiff.plugins.json` by default):
+
+```json
+{
+  "plugins": [
+    {
+      "name": "todo-detector",
+      "path": "examples/plugins/todo_detector.py"
+    }
+  ]
+}
+```
+
+Each plugin module must expose:
+
+```python
+def analyze_file(file_data: dict) -> dict:
+    ...
+```
+
+Supported plugin output fields:
+- `patterns`: list of pattern names or `{name, confidence}` objects
+- `risk_reasons`: list of strings appended to file risk reasons
+- `risk_score_delta`: positive integer added to risk score
+
+Example plugin: `examples/plugins/todo_detector.py`
 
 ## License
 

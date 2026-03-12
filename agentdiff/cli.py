@@ -12,6 +12,7 @@ from .html_report import analysis_to_static_html
 from .ignore import read_ignore_patterns
 from .markdown import analysis_to_markdown
 from .plan_validator import validate_execution_plan
+from .plugins import load_plugins
 from .sarif import analysis_to_sarif
 from .secret_ignore import read_secret_ignore_patterns
 from .webserver import run_server
@@ -73,6 +74,10 @@ def _resolve_secret_ignore_patterns(secret_ignore_file_path: str | None) -> list
     return read_secret_ignore_patterns()
 
 
+def _resolve_plugins(plugins_config_path: str | None):
+    return load_plugins(plugins_config_path)
+
+
 def _write_output(payload: dict[str, Any] | str, output_path: str | None) -> None:
     if isinstance(payload, str):
         rendered = payload
@@ -114,6 +119,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--secrets-ignore-file",
         help="Path to secret-ignore file (default: ./.agentdiff-secrets-ignore if present)",
     )
+    analyze_parser.add_argument(
+        "--plugins-config",
+        help="Path to plugin config JSON (default: ./.agentdiff.plugins.json if present)",
+    )
 
     serve_parser = subparsers.add_parser("serve", help="Start local web UI for diff analysis")
     serve_parser.add_argument("--diff", help="Path to a git diff file. Defaults to current `git diff`.")
@@ -128,6 +137,10 @@ def build_parser() -> argparse.ArgumentParser:
     serve_parser.add_argument(
         "--secrets-ignore-file",
         help="Path to secret-ignore file (default: ./.agentdiff-secrets-ignore if present)",
+    )
+    serve_parser.add_argument(
+        "--plugins-config",
+        help="Path to plugin config JSON (default: ./.agentdiff.plugins.json if present)",
     )
     serve_parser.add_argument(
         "--analysis",
@@ -154,11 +167,13 @@ def main(argv: list[str] | None = None) -> int:
             plan_data = _read_plan(args.plan)
             ignore_patterns = _resolve_ignore_patterns(args.ignore_file)
             secret_ignore_patterns = _resolve_secret_ignore_patterns(args.secrets_ignore_file)
+            plugins = _resolve_plugins(args.plugins_config)
             result = analyze_diff(
                 diff_text,
                 plan_data,
                 ignore_patterns=ignore_patterns,
                 secret_ignore_patterns=secret_ignore_patterns,
+                plugins=plugins,
             )
             if args.format == "sarif":
                 output_payload: dict[str, Any] | str = analysis_to_sarif(result)
@@ -184,11 +199,13 @@ def main(argv: list[str] | None = None) -> int:
                 plan_data = _read_plan(args.plan)
                 ignore_patterns = _resolve_ignore_patterns(args.ignore_file)
                 secret_ignore_patterns = _resolve_secret_ignore_patterns(args.secrets_ignore_file)
+                plugins = _resolve_plugins(args.plugins_config)
                 analysis = analyze_diff(
                     diff_text,
                     plan_data,
                     ignore_patterns=ignore_patterns,
                     secret_ignore_patterns=secret_ignore_patterns,
+                    plugins=plugins,
                 )
             run_server(analysis, host=args.host, port=args.port)
             return 0
