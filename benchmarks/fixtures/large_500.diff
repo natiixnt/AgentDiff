@@ -1,0 +1,4500 @@
+diff --git a/src/bench/module_0001.py b/src/bench/module_0001.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0001.py
++++ b/src/bench/module_0001.py
+@@ -1,2 +1,3 @@
+ def fn_0001(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0002.py b/src/bench/module_0002.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0002.py
++++ b/src/bench/module_0002.py
+@@ -1,2 +1,3 @@
+ def fn_0002(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0003.py b/src/bench/module_0003.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0003.py
++++ b/src/bench/module_0003.py
+@@ -1,2 +1,3 @@
+ def fn_0003(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0004.py b/src/bench/module_0004.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0004.py
++++ b/src/bench/module_0004.py
+@@ -1,2 +1,3 @@
+ def fn_0004(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0005.py b/src/bench/module_0005.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0005.py
++++ b/src/bench/module_0005.py
+@@ -1,2 +1,3 @@
+ def fn_0005(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0006.py b/src/bench/module_0006.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0006.py
++++ b/src/bench/module_0006.py
+@@ -1,2 +1,3 @@
+ def fn_0006(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0007.py b/src/bench/module_0007.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0007.py
++++ b/src/bench/module_0007.py
+@@ -1,2 +1,3 @@
+ def fn_0007(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0008.py b/src/bench/module_0008.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0008.py
++++ b/src/bench/module_0008.py
+@@ -1,2 +1,3 @@
+ def fn_0008(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0009.py b/src/bench/module_0009.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0009.py
++++ b/src/bench/module_0009.py
+@@ -1,2 +1,3 @@
+ def fn_0009(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0010.py b/src/bench/module_0010.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0010.py
++++ b/src/bench/module_0010.py
+@@ -1,2 +1,3 @@
+ def fn_0010(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0011.py b/src/bench/module_0011.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0011.py
++++ b/src/bench/module_0011.py
+@@ -1,2 +1,3 @@
+ def fn_0011(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0012.py b/src/bench/module_0012.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0012.py
++++ b/src/bench/module_0012.py
+@@ -1,2 +1,3 @@
+ def fn_0012(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0013.py b/src/bench/module_0013.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0013.py
++++ b/src/bench/module_0013.py
+@@ -1,2 +1,3 @@
+ def fn_0013(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0014.py b/src/bench/module_0014.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0014.py
++++ b/src/bench/module_0014.py
+@@ -1,2 +1,3 @@
+ def fn_0014(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0015.py b/src/bench/module_0015.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0015.py
++++ b/src/bench/module_0015.py
+@@ -1,2 +1,3 @@
+ def fn_0015(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0016.py b/src/bench/module_0016.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0016.py
++++ b/src/bench/module_0016.py
+@@ -1,2 +1,3 @@
+ def fn_0016(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0017.py b/src/bench/module_0017.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0017.py
++++ b/src/bench/module_0017.py
+@@ -1,2 +1,3 @@
+ def fn_0017(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0018.py b/src/bench/module_0018.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0018.py
++++ b/src/bench/module_0018.py
+@@ -1,2 +1,3 @@
+ def fn_0018(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0019.py b/src/bench/module_0019.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0019.py
++++ b/src/bench/module_0019.py
+@@ -1,2 +1,3 @@
+ def fn_0019(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0020.py b/src/bench/module_0020.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0020.py
++++ b/src/bench/module_0020.py
+@@ -1,2 +1,3 @@
+ def fn_0020(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0021.py b/src/bench/module_0021.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0021.py
++++ b/src/bench/module_0021.py
+@@ -1,2 +1,3 @@
+ def fn_0021(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0022.py b/src/bench/module_0022.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0022.py
++++ b/src/bench/module_0022.py
+@@ -1,2 +1,3 @@
+ def fn_0022(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0023.py b/src/bench/module_0023.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0023.py
++++ b/src/bench/module_0023.py
+@@ -1,2 +1,3 @@
+ def fn_0023(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0024.py b/src/bench/module_0024.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0024.py
++++ b/src/bench/module_0024.py
+@@ -1,2 +1,3 @@
+ def fn_0024(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0025.py b/src/bench/module_0025.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0025.py
++++ b/src/bench/module_0025.py
+@@ -1,2 +1,3 @@
+ def fn_0025(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0026.py b/src/bench/module_0026.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0026.py
++++ b/src/bench/module_0026.py
+@@ -1,2 +1,3 @@
+ def fn_0026(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0027.py b/src/bench/module_0027.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0027.py
++++ b/src/bench/module_0027.py
+@@ -1,2 +1,3 @@
+ def fn_0027(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0028.py b/src/bench/module_0028.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0028.py
++++ b/src/bench/module_0028.py
+@@ -1,2 +1,3 @@
+ def fn_0028(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0029.py b/src/bench/module_0029.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0029.py
++++ b/src/bench/module_0029.py
+@@ -1,2 +1,3 @@
+ def fn_0029(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0030.py b/src/bench/module_0030.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0030.py
++++ b/src/bench/module_0030.py
+@@ -1,2 +1,3 @@
+ def fn_0030(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0031.py b/src/bench/module_0031.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0031.py
++++ b/src/bench/module_0031.py
+@@ -1,2 +1,3 @@
+ def fn_0031(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0032.py b/src/bench/module_0032.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0032.py
++++ b/src/bench/module_0032.py
+@@ -1,2 +1,3 @@
+ def fn_0032(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0033.py b/src/bench/module_0033.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0033.py
++++ b/src/bench/module_0033.py
+@@ -1,2 +1,3 @@
+ def fn_0033(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0034.py b/src/bench/module_0034.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0034.py
++++ b/src/bench/module_0034.py
+@@ -1,2 +1,3 @@
+ def fn_0034(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0035.py b/src/bench/module_0035.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0035.py
++++ b/src/bench/module_0035.py
+@@ -1,2 +1,3 @@
+ def fn_0035(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0036.py b/src/bench/module_0036.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0036.py
++++ b/src/bench/module_0036.py
+@@ -1,2 +1,3 @@
+ def fn_0036(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0037.py b/src/bench/module_0037.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0037.py
++++ b/src/bench/module_0037.py
+@@ -1,2 +1,3 @@
+ def fn_0037(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0038.py b/src/bench/module_0038.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0038.py
++++ b/src/bench/module_0038.py
+@@ -1,2 +1,3 @@
+ def fn_0038(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0039.py b/src/bench/module_0039.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0039.py
++++ b/src/bench/module_0039.py
+@@ -1,2 +1,3 @@
+ def fn_0039(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0040.py b/src/bench/module_0040.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0040.py
++++ b/src/bench/module_0040.py
+@@ -1,2 +1,3 @@
+ def fn_0040(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0041.py b/src/bench/module_0041.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0041.py
++++ b/src/bench/module_0041.py
+@@ -1,2 +1,3 @@
+ def fn_0041(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0042.py b/src/bench/module_0042.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0042.py
++++ b/src/bench/module_0042.py
+@@ -1,2 +1,3 @@
+ def fn_0042(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0043.py b/src/bench/module_0043.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0043.py
++++ b/src/bench/module_0043.py
+@@ -1,2 +1,3 @@
+ def fn_0043(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0044.py b/src/bench/module_0044.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0044.py
++++ b/src/bench/module_0044.py
+@@ -1,2 +1,3 @@
+ def fn_0044(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0045.py b/src/bench/module_0045.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0045.py
++++ b/src/bench/module_0045.py
+@@ -1,2 +1,3 @@
+ def fn_0045(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0046.py b/src/bench/module_0046.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0046.py
++++ b/src/bench/module_0046.py
+@@ -1,2 +1,3 @@
+ def fn_0046(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0047.py b/src/bench/module_0047.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0047.py
++++ b/src/bench/module_0047.py
+@@ -1,2 +1,3 @@
+ def fn_0047(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0048.py b/src/bench/module_0048.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0048.py
++++ b/src/bench/module_0048.py
+@@ -1,2 +1,3 @@
+ def fn_0048(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0049.py b/src/bench/module_0049.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0049.py
++++ b/src/bench/module_0049.py
+@@ -1,2 +1,3 @@
+ def fn_0049(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0050.py b/src/bench/module_0050.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0050.py
++++ b/src/bench/module_0050.py
+@@ -1,2 +1,3 @@
+ def fn_0050(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0051.py b/src/bench/module_0051.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0051.py
++++ b/src/bench/module_0051.py
+@@ -1,2 +1,3 @@
+ def fn_0051(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0052.py b/src/bench/module_0052.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0052.py
++++ b/src/bench/module_0052.py
+@@ -1,2 +1,3 @@
+ def fn_0052(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0053.py b/src/bench/module_0053.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0053.py
++++ b/src/bench/module_0053.py
+@@ -1,2 +1,3 @@
+ def fn_0053(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0054.py b/src/bench/module_0054.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0054.py
++++ b/src/bench/module_0054.py
+@@ -1,2 +1,3 @@
+ def fn_0054(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0055.py b/src/bench/module_0055.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0055.py
++++ b/src/bench/module_0055.py
+@@ -1,2 +1,3 @@
+ def fn_0055(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0056.py b/src/bench/module_0056.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0056.py
++++ b/src/bench/module_0056.py
+@@ -1,2 +1,3 @@
+ def fn_0056(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0057.py b/src/bench/module_0057.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0057.py
++++ b/src/bench/module_0057.py
+@@ -1,2 +1,3 @@
+ def fn_0057(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0058.py b/src/bench/module_0058.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0058.py
++++ b/src/bench/module_0058.py
+@@ -1,2 +1,3 @@
+ def fn_0058(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0059.py b/src/bench/module_0059.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0059.py
++++ b/src/bench/module_0059.py
+@@ -1,2 +1,3 @@
+ def fn_0059(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0060.py b/src/bench/module_0060.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0060.py
++++ b/src/bench/module_0060.py
+@@ -1,2 +1,3 @@
+ def fn_0060(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0061.py b/src/bench/module_0061.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0061.py
++++ b/src/bench/module_0061.py
+@@ -1,2 +1,3 @@
+ def fn_0061(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0062.py b/src/bench/module_0062.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0062.py
++++ b/src/bench/module_0062.py
+@@ -1,2 +1,3 @@
+ def fn_0062(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0063.py b/src/bench/module_0063.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0063.py
++++ b/src/bench/module_0063.py
+@@ -1,2 +1,3 @@
+ def fn_0063(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0064.py b/src/bench/module_0064.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0064.py
++++ b/src/bench/module_0064.py
+@@ -1,2 +1,3 @@
+ def fn_0064(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0065.py b/src/bench/module_0065.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0065.py
++++ b/src/bench/module_0065.py
+@@ -1,2 +1,3 @@
+ def fn_0065(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0066.py b/src/bench/module_0066.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0066.py
++++ b/src/bench/module_0066.py
+@@ -1,2 +1,3 @@
+ def fn_0066(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0067.py b/src/bench/module_0067.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0067.py
++++ b/src/bench/module_0067.py
+@@ -1,2 +1,3 @@
+ def fn_0067(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0068.py b/src/bench/module_0068.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0068.py
++++ b/src/bench/module_0068.py
+@@ -1,2 +1,3 @@
+ def fn_0068(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0069.py b/src/bench/module_0069.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0069.py
++++ b/src/bench/module_0069.py
+@@ -1,2 +1,3 @@
+ def fn_0069(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0070.py b/src/bench/module_0070.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0070.py
++++ b/src/bench/module_0070.py
+@@ -1,2 +1,3 @@
+ def fn_0070(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0071.py b/src/bench/module_0071.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0071.py
++++ b/src/bench/module_0071.py
+@@ -1,2 +1,3 @@
+ def fn_0071(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0072.py b/src/bench/module_0072.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0072.py
++++ b/src/bench/module_0072.py
+@@ -1,2 +1,3 @@
+ def fn_0072(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0073.py b/src/bench/module_0073.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0073.py
++++ b/src/bench/module_0073.py
+@@ -1,2 +1,3 @@
+ def fn_0073(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0074.py b/src/bench/module_0074.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0074.py
++++ b/src/bench/module_0074.py
+@@ -1,2 +1,3 @@
+ def fn_0074(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0075.py b/src/bench/module_0075.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0075.py
++++ b/src/bench/module_0075.py
+@@ -1,2 +1,3 @@
+ def fn_0075(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0076.py b/src/bench/module_0076.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0076.py
++++ b/src/bench/module_0076.py
+@@ -1,2 +1,3 @@
+ def fn_0076(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0077.py b/src/bench/module_0077.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0077.py
++++ b/src/bench/module_0077.py
+@@ -1,2 +1,3 @@
+ def fn_0077(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0078.py b/src/bench/module_0078.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0078.py
++++ b/src/bench/module_0078.py
+@@ -1,2 +1,3 @@
+ def fn_0078(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0079.py b/src/bench/module_0079.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0079.py
++++ b/src/bench/module_0079.py
+@@ -1,2 +1,3 @@
+ def fn_0079(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0080.py b/src/bench/module_0080.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0080.py
++++ b/src/bench/module_0080.py
+@@ -1,2 +1,3 @@
+ def fn_0080(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0081.py b/src/bench/module_0081.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0081.py
++++ b/src/bench/module_0081.py
+@@ -1,2 +1,3 @@
+ def fn_0081(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0082.py b/src/bench/module_0082.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0082.py
++++ b/src/bench/module_0082.py
+@@ -1,2 +1,3 @@
+ def fn_0082(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0083.py b/src/bench/module_0083.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0083.py
++++ b/src/bench/module_0083.py
+@@ -1,2 +1,3 @@
+ def fn_0083(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0084.py b/src/bench/module_0084.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0084.py
++++ b/src/bench/module_0084.py
+@@ -1,2 +1,3 @@
+ def fn_0084(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0085.py b/src/bench/module_0085.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0085.py
++++ b/src/bench/module_0085.py
+@@ -1,2 +1,3 @@
+ def fn_0085(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0086.py b/src/bench/module_0086.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0086.py
++++ b/src/bench/module_0086.py
+@@ -1,2 +1,3 @@
+ def fn_0086(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0087.py b/src/bench/module_0087.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0087.py
++++ b/src/bench/module_0087.py
+@@ -1,2 +1,3 @@
+ def fn_0087(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0088.py b/src/bench/module_0088.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0088.py
++++ b/src/bench/module_0088.py
+@@ -1,2 +1,3 @@
+ def fn_0088(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0089.py b/src/bench/module_0089.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0089.py
++++ b/src/bench/module_0089.py
+@@ -1,2 +1,3 @@
+ def fn_0089(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0090.py b/src/bench/module_0090.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0090.py
++++ b/src/bench/module_0090.py
+@@ -1,2 +1,3 @@
+ def fn_0090(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0091.py b/src/bench/module_0091.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0091.py
++++ b/src/bench/module_0091.py
+@@ -1,2 +1,3 @@
+ def fn_0091(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0092.py b/src/bench/module_0092.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0092.py
++++ b/src/bench/module_0092.py
+@@ -1,2 +1,3 @@
+ def fn_0092(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0093.py b/src/bench/module_0093.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0093.py
++++ b/src/bench/module_0093.py
+@@ -1,2 +1,3 @@
+ def fn_0093(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0094.py b/src/bench/module_0094.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0094.py
++++ b/src/bench/module_0094.py
+@@ -1,2 +1,3 @@
+ def fn_0094(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0095.py b/src/bench/module_0095.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0095.py
++++ b/src/bench/module_0095.py
+@@ -1,2 +1,3 @@
+ def fn_0095(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0096.py b/src/bench/module_0096.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0096.py
++++ b/src/bench/module_0096.py
+@@ -1,2 +1,3 @@
+ def fn_0096(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0097.py b/src/bench/module_0097.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0097.py
++++ b/src/bench/module_0097.py
+@@ -1,2 +1,3 @@
+ def fn_0097(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0098.py b/src/bench/module_0098.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0098.py
++++ b/src/bench/module_0098.py
+@@ -1,2 +1,3 @@
+ def fn_0098(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0099.py b/src/bench/module_0099.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0099.py
++++ b/src/bench/module_0099.py
+@@ -1,2 +1,3 @@
+ def fn_0099(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0100.py b/src/bench/module_0100.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0100.py
++++ b/src/bench/module_0100.py
+@@ -1,2 +1,3 @@
+ def fn_0100(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0101.py b/src/bench/module_0101.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0101.py
++++ b/src/bench/module_0101.py
+@@ -1,2 +1,3 @@
+ def fn_0101(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0102.py b/src/bench/module_0102.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0102.py
++++ b/src/bench/module_0102.py
+@@ -1,2 +1,3 @@
+ def fn_0102(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0103.py b/src/bench/module_0103.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0103.py
++++ b/src/bench/module_0103.py
+@@ -1,2 +1,3 @@
+ def fn_0103(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0104.py b/src/bench/module_0104.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0104.py
++++ b/src/bench/module_0104.py
+@@ -1,2 +1,3 @@
+ def fn_0104(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0105.py b/src/bench/module_0105.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0105.py
++++ b/src/bench/module_0105.py
+@@ -1,2 +1,3 @@
+ def fn_0105(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0106.py b/src/bench/module_0106.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0106.py
++++ b/src/bench/module_0106.py
+@@ -1,2 +1,3 @@
+ def fn_0106(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0107.py b/src/bench/module_0107.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0107.py
++++ b/src/bench/module_0107.py
+@@ -1,2 +1,3 @@
+ def fn_0107(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0108.py b/src/bench/module_0108.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0108.py
++++ b/src/bench/module_0108.py
+@@ -1,2 +1,3 @@
+ def fn_0108(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0109.py b/src/bench/module_0109.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0109.py
++++ b/src/bench/module_0109.py
+@@ -1,2 +1,3 @@
+ def fn_0109(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0110.py b/src/bench/module_0110.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0110.py
++++ b/src/bench/module_0110.py
+@@ -1,2 +1,3 @@
+ def fn_0110(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0111.py b/src/bench/module_0111.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0111.py
++++ b/src/bench/module_0111.py
+@@ -1,2 +1,3 @@
+ def fn_0111(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0112.py b/src/bench/module_0112.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0112.py
++++ b/src/bench/module_0112.py
+@@ -1,2 +1,3 @@
+ def fn_0112(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0113.py b/src/bench/module_0113.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0113.py
++++ b/src/bench/module_0113.py
+@@ -1,2 +1,3 @@
+ def fn_0113(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0114.py b/src/bench/module_0114.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0114.py
++++ b/src/bench/module_0114.py
+@@ -1,2 +1,3 @@
+ def fn_0114(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0115.py b/src/bench/module_0115.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0115.py
++++ b/src/bench/module_0115.py
+@@ -1,2 +1,3 @@
+ def fn_0115(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0116.py b/src/bench/module_0116.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0116.py
++++ b/src/bench/module_0116.py
+@@ -1,2 +1,3 @@
+ def fn_0116(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0117.py b/src/bench/module_0117.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0117.py
++++ b/src/bench/module_0117.py
+@@ -1,2 +1,3 @@
+ def fn_0117(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0118.py b/src/bench/module_0118.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0118.py
++++ b/src/bench/module_0118.py
+@@ -1,2 +1,3 @@
+ def fn_0118(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0119.py b/src/bench/module_0119.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0119.py
++++ b/src/bench/module_0119.py
+@@ -1,2 +1,3 @@
+ def fn_0119(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0120.py b/src/bench/module_0120.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0120.py
++++ b/src/bench/module_0120.py
+@@ -1,2 +1,3 @@
+ def fn_0120(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0121.py b/src/bench/module_0121.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0121.py
++++ b/src/bench/module_0121.py
+@@ -1,2 +1,3 @@
+ def fn_0121(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0122.py b/src/bench/module_0122.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0122.py
++++ b/src/bench/module_0122.py
+@@ -1,2 +1,3 @@
+ def fn_0122(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0123.py b/src/bench/module_0123.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0123.py
++++ b/src/bench/module_0123.py
+@@ -1,2 +1,3 @@
+ def fn_0123(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0124.py b/src/bench/module_0124.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0124.py
++++ b/src/bench/module_0124.py
+@@ -1,2 +1,3 @@
+ def fn_0124(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0125.py b/src/bench/module_0125.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0125.py
++++ b/src/bench/module_0125.py
+@@ -1,2 +1,3 @@
+ def fn_0125(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0126.py b/src/bench/module_0126.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0126.py
++++ b/src/bench/module_0126.py
+@@ -1,2 +1,3 @@
+ def fn_0126(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0127.py b/src/bench/module_0127.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0127.py
++++ b/src/bench/module_0127.py
+@@ -1,2 +1,3 @@
+ def fn_0127(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0128.py b/src/bench/module_0128.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0128.py
++++ b/src/bench/module_0128.py
+@@ -1,2 +1,3 @@
+ def fn_0128(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0129.py b/src/bench/module_0129.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0129.py
++++ b/src/bench/module_0129.py
+@@ -1,2 +1,3 @@
+ def fn_0129(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0130.py b/src/bench/module_0130.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0130.py
++++ b/src/bench/module_0130.py
+@@ -1,2 +1,3 @@
+ def fn_0130(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0131.py b/src/bench/module_0131.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0131.py
++++ b/src/bench/module_0131.py
+@@ -1,2 +1,3 @@
+ def fn_0131(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0132.py b/src/bench/module_0132.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0132.py
++++ b/src/bench/module_0132.py
+@@ -1,2 +1,3 @@
+ def fn_0132(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0133.py b/src/bench/module_0133.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0133.py
++++ b/src/bench/module_0133.py
+@@ -1,2 +1,3 @@
+ def fn_0133(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0134.py b/src/bench/module_0134.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0134.py
++++ b/src/bench/module_0134.py
+@@ -1,2 +1,3 @@
+ def fn_0134(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0135.py b/src/bench/module_0135.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0135.py
++++ b/src/bench/module_0135.py
+@@ -1,2 +1,3 @@
+ def fn_0135(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0136.py b/src/bench/module_0136.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0136.py
++++ b/src/bench/module_0136.py
+@@ -1,2 +1,3 @@
+ def fn_0136(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0137.py b/src/bench/module_0137.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0137.py
++++ b/src/bench/module_0137.py
+@@ -1,2 +1,3 @@
+ def fn_0137(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0138.py b/src/bench/module_0138.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0138.py
++++ b/src/bench/module_0138.py
+@@ -1,2 +1,3 @@
+ def fn_0138(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0139.py b/src/bench/module_0139.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0139.py
++++ b/src/bench/module_0139.py
+@@ -1,2 +1,3 @@
+ def fn_0139(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0140.py b/src/bench/module_0140.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0140.py
++++ b/src/bench/module_0140.py
+@@ -1,2 +1,3 @@
+ def fn_0140(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0141.py b/src/bench/module_0141.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0141.py
++++ b/src/bench/module_0141.py
+@@ -1,2 +1,3 @@
+ def fn_0141(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0142.py b/src/bench/module_0142.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0142.py
++++ b/src/bench/module_0142.py
+@@ -1,2 +1,3 @@
+ def fn_0142(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0143.py b/src/bench/module_0143.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0143.py
++++ b/src/bench/module_0143.py
+@@ -1,2 +1,3 @@
+ def fn_0143(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0144.py b/src/bench/module_0144.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0144.py
++++ b/src/bench/module_0144.py
+@@ -1,2 +1,3 @@
+ def fn_0144(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0145.py b/src/bench/module_0145.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0145.py
++++ b/src/bench/module_0145.py
+@@ -1,2 +1,3 @@
+ def fn_0145(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0146.py b/src/bench/module_0146.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0146.py
++++ b/src/bench/module_0146.py
+@@ -1,2 +1,3 @@
+ def fn_0146(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0147.py b/src/bench/module_0147.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0147.py
++++ b/src/bench/module_0147.py
+@@ -1,2 +1,3 @@
+ def fn_0147(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0148.py b/src/bench/module_0148.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0148.py
++++ b/src/bench/module_0148.py
+@@ -1,2 +1,3 @@
+ def fn_0148(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0149.py b/src/bench/module_0149.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0149.py
++++ b/src/bench/module_0149.py
+@@ -1,2 +1,3 @@
+ def fn_0149(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0150.py b/src/bench/module_0150.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0150.py
++++ b/src/bench/module_0150.py
+@@ -1,2 +1,3 @@
+ def fn_0150(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0151.py b/src/bench/module_0151.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0151.py
++++ b/src/bench/module_0151.py
+@@ -1,2 +1,3 @@
+ def fn_0151(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0152.py b/src/bench/module_0152.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0152.py
++++ b/src/bench/module_0152.py
+@@ -1,2 +1,3 @@
+ def fn_0152(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0153.py b/src/bench/module_0153.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0153.py
++++ b/src/bench/module_0153.py
+@@ -1,2 +1,3 @@
+ def fn_0153(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0154.py b/src/bench/module_0154.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0154.py
++++ b/src/bench/module_0154.py
+@@ -1,2 +1,3 @@
+ def fn_0154(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0155.py b/src/bench/module_0155.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0155.py
++++ b/src/bench/module_0155.py
+@@ -1,2 +1,3 @@
+ def fn_0155(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0156.py b/src/bench/module_0156.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0156.py
++++ b/src/bench/module_0156.py
+@@ -1,2 +1,3 @@
+ def fn_0156(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0157.py b/src/bench/module_0157.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0157.py
++++ b/src/bench/module_0157.py
+@@ -1,2 +1,3 @@
+ def fn_0157(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0158.py b/src/bench/module_0158.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0158.py
++++ b/src/bench/module_0158.py
+@@ -1,2 +1,3 @@
+ def fn_0158(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0159.py b/src/bench/module_0159.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0159.py
++++ b/src/bench/module_0159.py
+@@ -1,2 +1,3 @@
+ def fn_0159(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0160.py b/src/bench/module_0160.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0160.py
++++ b/src/bench/module_0160.py
+@@ -1,2 +1,3 @@
+ def fn_0160(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0161.py b/src/bench/module_0161.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0161.py
++++ b/src/bench/module_0161.py
+@@ -1,2 +1,3 @@
+ def fn_0161(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0162.py b/src/bench/module_0162.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0162.py
++++ b/src/bench/module_0162.py
+@@ -1,2 +1,3 @@
+ def fn_0162(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0163.py b/src/bench/module_0163.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0163.py
++++ b/src/bench/module_0163.py
+@@ -1,2 +1,3 @@
+ def fn_0163(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0164.py b/src/bench/module_0164.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0164.py
++++ b/src/bench/module_0164.py
+@@ -1,2 +1,3 @@
+ def fn_0164(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0165.py b/src/bench/module_0165.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0165.py
++++ b/src/bench/module_0165.py
+@@ -1,2 +1,3 @@
+ def fn_0165(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0166.py b/src/bench/module_0166.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0166.py
++++ b/src/bench/module_0166.py
+@@ -1,2 +1,3 @@
+ def fn_0166(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0167.py b/src/bench/module_0167.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0167.py
++++ b/src/bench/module_0167.py
+@@ -1,2 +1,3 @@
+ def fn_0167(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0168.py b/src/bench/module_0168.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0168.py
++++ b/src/bench/module_0168.py
+@@ -1,2 +1,3 @@
+ def fn_0168(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0169.py b/src/bench/module_0169.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0169.py
++++ b/src/bench/module_0169.py
+@@ -1,2 +1,3 @@
+ def fn_0169(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0170.py b/src/bench/module_0170.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0170.py
++++ b/src/bench/module_0170.py
+@@ -1,2 +1,3 @@
+ def fn_0170(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0171.py b/src/bench/module_0171.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0171.py
++++ b/src/bench/module_0171.py
+@@ -1,2 +1,3 @@
+ def fn_0171(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0172.py b/src/bench/module_0172.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0172.py
++++ b/src/bench/module_0172.py
+@@ -1,2 +1,3 @@
+ def fn_0172(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0173.py b/src/bench/module_0173.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0173.py
++++ b/src/bench/module_0173.py
+@@ -1,2 +1,3 @@
+ def fn_0173(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0174.py b/src/bench/module_0174.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0174.py
++++ b/src/bench/module_0174.py
+@@ -1,2 +1,3 @@
+ def fn_0174(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0175.py b/src/bench/module_0175.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0175.py
++++ b/src/bench/module_0175.py
+@@ -1,2 +1,3 @@
+ def fn_0175(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0176.py b/src/bench/module_0176.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0176.py
++++ b/src/bench/module_0176.py
+@@ -1,2 +1,3 @@
+ def fn_0176(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0177.py b/src/bench/module_0177.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0177.py
++++ b/src/bench/module_0177.py
+@@ -1,2 +1,3 @@
+ def fn_0177(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0178.py b/src/bench/module_0178.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0178.py
++++ b/src/bench/module_0178.py
+@@ -1,2 +1,3 @@
+ def fn_0178(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0179.py b/src/bench/module_0179.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0179.py
++++ b/src/bench/module_0179.py
+@@ -1,2 +1,3 @@
+ def fn_0179(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0180.py b/src/bench/module_0180.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0180.py
++++ b/src/bench/module_0180.py
+@@ -1,2 +1,3 @@
+ def fn_0180(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0181.py b/src/bench/module_0181.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0181.py
++++ b/src/bench/module_0181.py
+@@ -1,2 +1,3 @@
+ def fn_0181(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0182.py b/src/bench/module_0182.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0182.py
++++ b/src/bench/module_0182.py
+@@ -1,2 +1,3 @@
+ def fn_0182(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0183.py b/src/bench/module_0183.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0183.py
++++ b/src/bench/module_0183.py
+@@ -1,2 +1,3 @@
+ def fn_0183(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0184.py b/src/bench/module_0184.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0184.py
++++ b/src/bench/module_0184.py
+@@ -1,2 +1,3 @@
+ def fn_0184(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0185.py b/src/bench/module_0185.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0185.py
++++ b/src/bench/module_0185.py
+@@ -1,2 +1,3 @@
+ def fn_0185(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0186.py b/src/bench/module_0186.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0186.py
++++ b/src/bench/module_0186.py
+@@ -1,2 +1,3 @@
+ def fn_0186(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0187.py b/src/bench/module_0187.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0187.py
++++ b/src/bench/module_0187.py
+@@ -1,2 +1,3 @@
+ def fn_0187(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0188.py b/src/bench/module_0188.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0188.py
++++ b/src/bench/module_0188.py
+@@ -1,2 +1,3 @@
+ def fn_0188(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0189.py b/src/bench/module_0189.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0189.py
++++ b/src/bench/module_0189.py
+@@ -1,2 +1,3 @@
+ def fn_0189(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0190.py b/src/bench/module_0190.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0190.py
++++ b/src/bench/module_0190.py
+@@ -1,2 +1,3 @@
+ def fn_0190(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0191.py b/src/bench/module_0191.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0191.py
++++ b/src/bench/module_0191.py
+@@ -1,2 +1,3 @@
+ def fn_0191(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0192.py b/src/bench/module_0192.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0192.py
++++ b/src/bench/module_0192.py
+@@ -1,2 +1,3 @@
+ def fn_0192(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0193.py b/src/bench/module_0193.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0193.py
++++ b/src/bench/module_0193.py
+@@ -1,2 +1,3 @@
+ def fn_0193(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0194.py b/src/bench/module_0194.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0194.py
++++ b/src/bench/module_0194.py
+@@ -1,2 +1,3 @@
+ def fn_0194(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0195.py b/src/bench/module_0195.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0195.py
++++ b/src/bench/module_0195.py
+@@ -1,2 +1,3 @@
+ def fn_0195(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0196.py b/src/bench/module_0196.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0196.py
++++ b/src/bench/module_0196.py
+@@ -1,2 +1,3 @@
+ def fn_0196(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0197.py b/src/bench/module_0197.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0197.py
++++ b/src/bench/module_0197.py
+@@ -1,2 +1,3 @@
+ def fn_0197(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0198.py b/src/bench/module_0198.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0198.py
++++ b/src/bench/module_0198.py
+@@ -1,2 +1,3 @@
+ def fn_0198(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0199.py b/src/bench/module_0199.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0199.py
++++ b/src/bench/module_0199.py
+@@ -1,2 +1,3 @@
+ def fn_0199(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0200.py b/src/bench/module_0200.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0200.py
++++ b/src/bench/module_0200.py
+@@ -1,2 +1,3 @@
+ def fn_0200(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0201.py b/src/bench/module_0201.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0201.py
++++ b/src/bench/module_0201.py
+@@ -1,2 +1,3 @@
+ def fn_0201(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0202.py b/src/bench/module_0202.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0202.py
++++ b/src/bench/module_0202.py
+@@ -1,2 +1,3 @@
+ def fn_0202(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0203.py b/src/bench/module_0203.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0203.py
++++ b/src/bench/module_0203.py
+@@ -1,2 +1,3 @@
+ def fn_0203(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0204.py b/src/bench/module_0204.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0204.py
++++ b/src/bench/module_0204.py
+@@ -1,2 +1,3 @@
+ def fn_0204(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0205.py b/src/bench/module_0205.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0205.py
++++ b/src/bench/module_0205.py
+@@ -1,2 +1,3 @@
+ def fn_0205(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0206.py b/src/bench/module_0206.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0206.py
++++ b/src/bench/module_0206.py
+@@ -1,2 +1,3 @@
+ def fn_0206(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0207.py b/src/bench/module_0207.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0207.py
++++ b/src/bench/module_0207.py
+@@ -1,2 +1,3 @@
+ def fn_0207(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0208.py b/src/bench/module_0208.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0208.py
++++ b/src/bench/module_0208.py
+@@ -1,2 +1,3 @@
+ def fn_0208(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0209.py b/src/bench/module_0209.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0209.py
++++ b/src/bench/module_0209.py
+@@ -1,2 +1,3 @@
+ def fn_0209(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0210.py b/src/bench/module_0210.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0210.py
++++ b/src/bench/module_0210.py
+@@ -1,2 +1,3 @@
+ def fn_0210(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0211.py b/src/bench/module_0211.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0211.py
++++ b/src/bench/module_0211.py
+@@ -1,2 +1,3 @@
+ def fn_0211(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0212.py b/src/bench/module_0212.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0212.py
++++ b/src/bench/module_0212.py
+@@ -1,2 +1,3 @@
+ def fn_0212(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0213.py b/src/bench/module_0213.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0213.py
++++ b/src/bench/module_0213.py
+@@ -1,2 +1,3 @@
+ def fn_0213(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0214.py b/src/bench/module_0214.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0214.py
++++ b/src/bench/module_0214.py
+@@ -1,2 +1,3 @@
+ def fn_0214(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0215.py b/src/bench/module_0215.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0215.py
++++ b/src/bench/module_0215.py
+@@ -1,2 +1,3 @@
+ def fn_0215(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0216.py b/src/bench/module_0216.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0216.py
++++ b/src/bench/module_0216.py
+@@ -1,2 +1,3 @@
+ def fn_0216(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0217.py b/src/bench/module_0217.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0217.py
++++ b/src/bench/module_0217.py
+@@ -1,2 +1,3 @@
+ def fn_0217(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0218.py b/src/bench/module_0218.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0218.py
++++ b/src/bench/module_0218.py
+@@ -1,2 +1,3 @@
+ def fn_0218(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0219.py b/src/bench/module_0219.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0219.py
++++ b/src/bench/module_0219.py
+@@ -1,2 +1,3 @@
+ def fn_0219(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0220.py b/src/bench/module_0220.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0220.py
++++ b/src/bench/module_0220.py
+@@ -1,2 +1,3 @@
+ def fn_0220(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0221.py b/src/bench/module_0221.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0221.py
++++ b/src/bench/module_0221.py
+@@ -1,2 +1,3 @@
+ def fn_0221(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0222.py b/src/bench/module_0222.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0222.py
++++ b/src/bench/module_0222.py
+@@ -1,2 +1,3 @@
+ def fn_0222(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0223.py b/src/bench/module_0223.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0223.py
++++ b/src/bench/module_0223.py
+@@ -1,2 +1,3 @@
+ def fn_0223(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0224.py b/src/bench/module_0224.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0224.py
++++ b/src/bench/module_0224.py
+@@ -1,2 +1,3 @@
+ def fn_0224(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0225.py b/src/bench/module_0225.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0225.py
++++ b/src/bench/module_0225.py
+@@ -1,2 +1,3 @@
+ def fn_0225(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0226.py b/src/bench/module_0226.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0226.py
++++ b/src/bench/module_0226.py
+@@ -1,2 +1,3 @@
+ def fn_0226(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0227.py b/src/bench/module_0227.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0227.py
++++ b/src/bench/module_0227.py
+@@ -1,2 +1,3 @@
+ def fn_0227(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0228.py b/src/bench/module_0228.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0228.py
++++ b/src/bench/module_0228.py
+@@ -1,2 +1,3 @@
+ def fn_0228(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0229.py b/src/bench/module_0229.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0229.py
++++ b/src/bench/module_0229.py
+@@ -1,2 +1,3 @@
+ def fn_0229(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0230.py b/src/bench/module_0230.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0230.py
++++ b/src/bench/module_0230.py
+@@ -1,2 +1,3 @@
+ def fn_0230(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0231.py b/src/bench/module_0231.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0231.py
++++ b/src/bench/module_0231.py
+@@ -1,2 +1,3 @@
+ def fn_0231(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0232.py b/src/bench/module_0232.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0232.py
++++ b/src/bench/module_0232.py
+@@ -1,2 +1,3 @@
+ def fn_0232(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0233.py b/src/bench/module_0233.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0233.py
++++ b/src/bench/module_0233.py
+@@ -1,2 +1,3 @@
+ def fn_0233(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0234.py b/src/bench/module_0234.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0234.py
++++ b/src/bench/module_0234.py
+@@ -1,2 +1,3 @@
+ def fn_0234(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0235.py b/src/bench/module_0235.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0235.py
++++ b/src/bench/module_0235.py
+@@ -1,2 +1,3 @@
+ def fn_0235(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0236.py b/src/bench/module_0236.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0236.py
++++ b/src/bench/module_0236.py
+@@ -1,2 +1,3 @@
+ def fn_0236(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0237.py b/src/bench/module_0237.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0237.py
++++ b/src/bench/module_0237.py
+@@ -1,2 +1,3 @@
+ def fn_0237(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0238.py b/src/bench/module_0238.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0238.py
++++ b/src/bench/module_0238.py
+@@ -1,2 +1,3 @@
+ def fn_0238(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0239.py b/src/bench/module_0239.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0239.py
++++ b/src/bench/module_0239.py
+@@ -1,2 +1,3 @@
+ def fn_0239(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0240.py b/src/bench/module_0240.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0240.py
++++ b/src/bench/module_0240.py
+@@ -1,2 +1,3 @@
+ def fn_0240(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0241.py b/src/bench/module_0241.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0241.py
++++ b/src/bench/module_0241.py
+@@ -1,2 +1,3 @@
+ def fn_0241(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0242.py b/src/bench/module_0242.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0242.py
++++ b/src/bench/module_0242.py
+@@ -1,2 +1,3 @@
+ def fn_0242(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0243.py b/src/bench/module_0243.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0243.py
++++ b/src/bench/module_0243.py
+@@ -1,2 +1,3 @@
+ def fn_0243(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0244.py b/src/bench/module_0244.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0244.py
++++ b/src/bench/module_0244.py
+@@ -1,2 +1,3 @@
+ def fn_0244(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0245.py b/src/bench/module_0245.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0245.py
++++ b/src/bench/module_0245.py
+@@ -1,2 +1,3 @@
+ def fn_0245(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0246.py b/src/bench/module_0246.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0246.py
++++ b/src/bench/module_0246.py
+@@ -1,2 +1,3 @@
+ def fn_0246(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0247.py b/src/bench/module_0247.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0247.py
++++ b/src/bench/module_0247.py
+@@ -1,2 +1,3 @@
+ def fn_0247(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0248.py b/src/bench/module_0248.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0248.py
++++ b/src/bench/module_0248.py
+@@ -1,2 +1,3 @@
+ def fn_0248(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0249.py b/src/bench/module_0249.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0249.py
++++ b/src/bench/module_0249.py
+@@ -1,2 +1,3 @@
+ def fn_0249(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0250.py b/src/bench/module_0250.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0250.py
++++ b/src/bench/module_0250.py
+@@ -1,2 +1,3 @@
+ def fn_0250(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0251.py b/src/bench/module_0251.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0251.py
++++ b/src/bench/module_0251.py
+@@ -1,2 +1,3 @@
+ def fn_0251(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0252.py b/src/bench/module_0252.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0252.py
++++ b/src/bench/module_0252.py
+@@ -1,2 +1,3 @@
+ def fn_0252(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0253.py b/src/bench/module_0253.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0253.py
++++ b/src/bench/module_0253.py
+@@ -1,2 +1,3 @@
+ def fn_0253(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0254.py b/src/bench/module_0254.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0254.py
++++ b/src/bench/module_0254.py
+@@ -1,2 +1,3 @@
+ def fn_0254(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0255.py b/src/bench/module_0255.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0255.py
++++ b/src/bench/module_0255.py
+@@ -1,2 +1,3 @@
+ def fn_0255(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0256.py b/src/bench/module_0256.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0256.py
++++ b/src/bench/module_0256.py
+@@ -1,2 +1,3 @@
+ def fn_0256(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0257.py b/src/bench/module_0257.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0257.py
++++ b/src/bench/module_0257.py
+@@ -1,2 +1,3 @@
+ def fn_0257(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0258.py b/src/bench/module_0258.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0258.py
++++ b/src/bench/module_0258.py
+@@ -1,2 +1,3 @@
+ def fn_0258(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0259.py b/src/bench/module_0259.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0259.py
++++ b/src/bench/module_0259.py
+@@ -1,2 +1,3 @@
+ def fn_0259(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0260.py b/src/bench/module_0260.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0260.py
++++ b/src/bench/module_0260.py
+@@ -1,2 +1,3 @@
+ def fn_0260(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0261.py b/src/bench/module_0261.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0261.py
++++ b/src/bench/module_0261.py
+@@ -1,2 +1,3 @@
+ def fn_0261(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0262.py b/src/bench/module_0262.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0262.py
++++ b/src/bench/module_0262.py
+@@ -1,2 +1,3 @@
+ def fn_0262(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0263.py b/src/bench/module_0263.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0263.py
++++ b/src/bench/module_0263.py
+@@ -1,2 +1,3 @@
+ def fn_0263(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0264.py b/src/bench/module_0264.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0264.py
++++ b/src/bench/module_0264.py
+@@ -1,2 +1,3 @@
+ def fn_0264(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0265.py b/src/bench/module_0265.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0265.py
++++ b/src/bench/module_0265.py
+@@ -1,2 +1,3 @@
+ def fn_0265(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0266.py b/src/bench/module_0266.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0266.py
++++ b/src/bench/module_0266.py
+@@ -1,2 +1,3 @@
+ def fn_0266(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0267.py b/src/bench/module_0267.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0267.py
++++ b/src/bench/module_0267.py
+@@ -1,2 +1,3 @@
+ def fn_0267(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0268.py b/src/bench/module_0268.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0268.py
++++ b/src/bench/module_0268.py
+@@ -1,2 +1,3 @@
+ def fn_0268(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0269.py b/src/bench/module_0269.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0269.py
++++ b/src/bench/module_0269.py
+@@ -1,2 +1,3 @@
+ def fn_0269(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0270.py b/src/bench/module_0270.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0270.py
++++ b/src/bench/module_0270.py
+@@ -1,2 +1,3 @@
+ def fn_0270(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0271.py b/src/bench/module_0271.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0271.py
++++ b/src/bench/module_0271.py
+@@ -1,2 +1,3 @@
+ def fn_0271(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0272.py b/src/bench/module_0272.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0272.py
++++ b/src/bench/module_0272.py
+@@ -1,2 +1,3 @@
+ def fn_0272(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0273.py b/src/bench/module_0273.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0273.py
++++ b/src/bench/module_0273.py
+@@ -1,2 +1,3 @@
+ def fn_0273(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0274.py b/src/bench/module_0274.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0274.py
++++ b/src/bench/module_0274.py
+@@ -1,2 +1,3 @@
+ def fn_0274(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0275.py b/src/bench/module_0275.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0275.py
++++ b/src/bench/module_0275.py
+@@ -1,2 +1,3 @@
+ def fn_0275(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0276.py b/src/bench/module_0276.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0276.py
++++ b/src/bench/module_0276.py
+@@ -1,2 +1,3 @@
+ def fn_0276(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0277.py b/src/bench/module_0277.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0277.py
++++ b/src/bench/module_0277.py
+@@ -1,2 +1,3 @@
+ def fn_0277(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0278.py b/src/bench/module_0278.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0278.py
++++ b/src/bench/module_0278.py
+@@ -1,2 +1,3 @@
+ def fn_0278(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0279.py b/src/bench/module_0279.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0279.py
++++ b/src/bench/module_0279.py
+@@ -1,2 +1,3 @@
+ def fn_0279(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0280.py b/src/bench/module_0280.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0280.py
++++ b/src/bench/module_0280.py
+@@ -1,2 +1,3 @@
+ def fn_0280(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0281.py b/src/bench/module_0281.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0281.py
++++ b/src/bench/module_0281.py
+@@ -1,2 +1,3 @@
+ def fn_0281(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0282.py b/src/bench/module_0282.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0282.py
++++ b/src/bench/module_0282.py
+@@ -1,2 +1,3 @@
+ def fn_0282(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0283.py b/src/bench/module_0283.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0283.py
++++ b/src/bench/module_0283.py
+@@ -1,2 +1,3 @@
+ def fn_0283(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0284.py b/src/bench/module_0284.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0284.py
++++ b/src/bench/module_0284.py
+@@ -1,2 +1,3 @@
+ def fn_0284(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0285.py b/src/bench/module_0285.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0285.py
++++ b/src/bench/module_0285.py
+@@ -1,2 +1,3 @@
+ def fn_0285(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0286.py b/src/bench/module_0286.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0286.py
++++ b/src/bench/module_0286.py
+@@ -1,2 +1,3 @@
+ def fn_0286(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0287.py b/src/bench/module_0287.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0287.py
++++ b/src/bench/module_0287.py
+@@ -1,2 +1,3 @@
+ def fn_0287(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0288.py b/src/bench/module_0288.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0288.py
++++ b/src/bench/module_0288.py
+@@ -1,2 +1,3 @@
+ def fn_0288(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0289.py b/src/bench/module_0289.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0289.py
++++ b/src/bench/module_0289.py
+@@ -1,2 +1,3 @@
+ def fn_0289(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0290.py b/src/bench/module_0290.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0290.py
++++ b/src/bench/module_0290.py
+@@ -1,2 +1,3 @@
+ def fn_0290(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0291.py b/src/bench/module_0291.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0291.py
++++ b/src/bench/module_0291.py
+@@ -1,2 +1,3 @@
+ def fn_0291(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0292.py b/src/bench/module_0292.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0292.py
++++ b/src/bench/module_0292.py
+@@ -1,2 +1,3 @@
+ def fn_0292(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0293.py b/src/bench/module_0293.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0293.py
++++ b/src/bench/module_0293.py
+@@ -1,2 +1,3 @@
+ def fn_0293(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0294.py b/src/bench/module_0294.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0294.py
++++ b/src/bench/module_0294.py
+@@ -1,2 +1,3 @@
+ def fn_0294(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0295.py b/src/bench/module_0295.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0295.py
++++ b/src/bench/module_0295.py
+@@ -1,2 +1,3 @@
+ def fn_0295(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0296.py b/src/bench/module_0296.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0296.py
++++ b/src/bench/module_0296.py
+@@ -1,2 +1,3 @@
+ def fn_0296(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0297.py b/src/bench/module_0297.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0297.py
++++ b/src/bench/module_0297.py
+@@ -1,2 +1,3 @@
+ def fn_0297(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0298.py b/src/bench/module_0298.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0298.py
++++ b/src/bench/module_0298.py
+@@ -1,2 +1,3 @@
+ def fn_0298(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0299.py b/src/bench/module_0299.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0299.py
++++ b/src/bench/module_0299.py
+@@ -1,2 +1,3 @@
+ def fn_0299(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0300.py b/src/bench/module_0300.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0300.py
++++ b/src/bench/module_0300.py
+@@ -1,2 +1,3 @@
+ def fn_0300(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0301.py b/src/bench/module_0301.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0301.py
++++ b/src/bench/module_0301.py
+@@ -1,2 +1,3 @@
+ def fn_0301(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0302.py b/src/bench/module_0302.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0302.py
++++ b/src/bench/module_0302.py
+@@ -1,2 +1,3 @@
+ def fn_0302(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0303.py b/src/bench/module_0303.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0303.py
++++ b/src/bench/module_0303.py
+@@ -1,2 +1,3 @@
+ def fn_0303(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0304.py b/src/bench/module_0304.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0304.py
++++ b/src/bench/module_0304.py
+@@ -1,2 +1,3 @@
+ def fn_0304(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0305.py b/src/bench/module_0305.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0305.py
++++ b/src/bench/module_0305.py
+@@ -1,2 +1,3 @@
+ def fn_0305(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0306.py b/src/bench/module_0306.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0306.py
++++ b/src/bench/module_0306.py
+@@ -1,2 +1,3 @@
+ def fn_0306(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0307.py b/src/bench/module_0307.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0307.py
++++ b/src/bench/module_0307.py
+@@ -1,2 +1,3 @@
+ def fn_0307(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0308.py b/src/bench/module_0308.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0308.py
++++ b/src/bench/module_0308.py
+@@ -1,2 +1,3 @@
+ def fn_0308(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0309.py b/src/bench/module_0309.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0309.py
++++ b/src/bench/module_0309.py
+@@ -1,2 +1,3 @@
+ def fn_0309(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0310.py b/src/bench/module_0310.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0310.py
++++ b/src/bench/module_0310.py
+@@ -1,2 +1,3 @@
+ def fn_0310(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0311.py b/src/bench/module_0311.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0311.py
++++ b/src/bench/module_0311.py
+@@ -1,2 +1,3 @@
+ def fn_0311(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0312.py b/src/bench/module_0312.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0312.py
++++ b/src/bench/module_0312.py
+@@ -1,2 +1,3 @@
+ def fn_0312(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0313.py b/src/bench/module_0313.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0313.py
++++ b/src/bench/module_0313.py
+@@ -1,2 +1,3 @@
+ def fn_0313(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0314.py b/src/bench/module_0314.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0314.py
++++ b/src/bench/module_0314.py
+@@ -1,2 +1,3 @@
+ def fn_0314(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0315.py b/src/bench/module_0315.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0315.py
++++ b/src/bench/module_0315.py
+@@ -1,2 +1,3 @@
+ def fn_0315(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0316.py b/src/bench/module_0316.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0316.py
++++ b/src/bench/module_0316.py
+@@ -1,2 +1,3 @@
+ def fn_0316(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0317.py b/src/bench/module_0317.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0317.py
++++ b/src/bench/module_0317.py
+@@ -1,2 +1,3 @@
+ def fn_0317(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0318.py b/src/bench/module_0318.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0318.py
++++ b/src/bench/module_0318.py
+@@ -1,2 +1,3 @@
+ def fn_0318(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0319.py b/src/bench/module_0319.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0319.py
++++ b/src/bench/module_0319.py
+@@ -1,2 +1,3 @@
+ def fn_0319(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0320.py b/src/bench/module_0320.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0320.py
++++ b/src/bench/module_0320.py
+@@ -1,2 +1,3 @@
+ def fn_0320(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0321.py b/src/bench/module_0321.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0321.py
++++ b/src/bench/module_0321.py
+@@ -1,2 +1,3 @@
+ def fn_0321(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0322.py b/src/bench/module_0322.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0322.py
++++ b/src/bench/module_0322.py
+@@ -1,2 +1,3 @@
+ def fn_0322(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0323.py b/src/bench/module_0323.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0323.py
++++ b/src/bench/module_0323.py
+@@ -1,2 +1,3 @@
+ def fn_0323(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0324.py b/src/bench/module_0324.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0324.py
++++ b/src/bench/module_0324.py
+@@ -1,2 +1,3 @@
+ def fn_0324(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0325.py b/src/bench/module_0325.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0325.py
++++ b/src/bench/module_0325.py
+@@ -1,2 +1,3 @@
+ def fn_0325(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0326.py b/src/bench/module_0326.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0326.py
++++ b/src/bench/module_0326.py
+@@ -1,2 +1,3 @@
+ def fn_0326(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0327.py b/src/bench/module_0327.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0327.py
++++ b/src/bench/module_0327.py
+@@ -1,2 +1,3 @@
+ def fn_0327(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0328.py b/src/bench/module_0328.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0328.py
++++ b/src/bench/module_0328.py
+@@ -1,2 +1,3 @@
+ def fn_0328(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0329.py b/src/bench/module_0329.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0329.py
++++ b/src/bench/module_0329.py
+@@ -1,2 +1,3 @@
+ def fn_0329(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0330.py b/src/bench/module_0330.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0330.py
++++ b/src/bench/module_0330.py
+@@ -1,2 +1,3 @@
+ def fn_0330(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0331.py b/src/bench/module_0331.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0331.py
++++ b/src/bench/module_0331.py
+@@ -1,2 +1,3 @@
+ def fn_0331(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0332.py b/src/bench/module_0332.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0332.py
++++ b/src/bench/module_0332.py
+@@ -1,2 +1,3 @@
+ def fn_0332(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0333.py b/src/bench/module_0333.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0333.py
++++ b/src/bench/module_0333.py
+@@ -1,2 +1,3 @@
+ def fn_0333(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0334.py b/src/bench/module_0334.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0334.py
++++ b/src/bench/module_0334.py
+@@ -1,2 +1,3 @@
+ def fn_0334(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0335.py b/src/bench/module_0335.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0335.py
++++ b/src/bench/module_0335.py
+@@ -1,2 +1,3 @@
+ def fn_0335(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0336.py b/src/bench/module_0336.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0336.py
++++ b/src/bench/module_0336.py
+@@ -1,2 +1,3 @@
+ def fn_0336(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0337.py b/src/bench/module_0337.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0337.py
++++ b/src/bench/module_0337.py
+@@ -1,2 +1,3 @@
+ def fn_0337(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0338.py b/src/bench/module_0338.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0338.py
++++ b/src/bench/module_0338.py
+@@ -1,2 +1,3 @@
+ def fn_0338(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0339.py b/src/bench/module_0339.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0339.py
++++ b/src/bench/module_0339.py
+@@ -1,2 +1,3 @@
+ def fn_0339(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0340.py b/src/bench/module_0340.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0340.py
++++ b/src/bench/module_0340.py
+@@ -1,2 +1,3 @@
+ def fn_0340(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0341.py b/src/bench/module_0341.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0341.py
++++ b/src/bench/module_0341.py
+@@ -1,2 +1,3 @@
+ def fn_0341(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0342.py b/src/bench/module_0342.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0342.py
++++ b/src/bench/module_0342.py
+@@ -1,2 +1,3 @@
+ def fn_0342(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0343.py b/src/bench/module_0343.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0343.py
++++ b/src/bench/module_0343.py
+@@ -1,2 +1,3 @@
+ def fn_0343(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0344.py b/src/bench/module_0344.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0344.py
++++ b/src/bench/module_0344.py
+@@ -1,2 +1,3 @@
+ def fn_0344(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0345.py b/src/bench/module_0345.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0345.py
++++ b/src/bench/module_0345.py
+@@ -1,2 +1,3 @@
+ def fn_0345(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0346.py b/src/bench/module_0346.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0346.py
++++ b/src/bench/module_0346.py
+@@ -1,2 +1,3 @@
+ def fn_0346(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0347.py b/src/bench/module_0347.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0347.py
++++ b/src/bench/module_0347.py
+@@ -1,2 +1,3 @@
+ def fn_0347(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0348.py b/src/bench/module_0348.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0348.py
++++ b/src/bench/module_0348.py
+@@ -1,2 +1,3 @@
+ def fn_0348(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0349.py b/src/bench/module_0349.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0349.py
++++ b/src/bench/module_0349.py
+@@ -1,2 +1,3 @@
+ def fn_0349(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0350.py b/src/bench/module_0350.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0350.py
++++ b/src/bench/module_0350.py
+@@ -1,2 +1,3 @@
+ def fn_0350(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0351.py b/src/bench/module_0351.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0351.py
++++ b/src/bench/module_0351.py
+@@ -1,2 +1,3 @@
+ def fn_0351(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0352.py b/src/bench/module_0352.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0352.py
++++ b/src/bench/module_0352.py
+@@ -1,2 +1,3 @@
+ def fn_0352(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0353.py b/src/bench/module_0353.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0353.py
++++ b/src/bench/module_0353.py
+@@ -1,2 +1,3 @@
+ def fn_0353(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0354.py b/src/bench/module_0354.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0354.py
++++ b/src/bench/module_0354.py
+@@ -1,2 +1,3 @@
+ def fn_0354(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0355.py b/src/bench/module_0355.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0355.py
++++ b/src/bench/module_0355.py
+@@ -1,2 +1,3 @@
+ def fn_0355(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0356.py b/src/bench/module_0356.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0356.py
++++ b/src/bench/module_0356.py
+@@ -1,2 +1,3 @@
+ def fn_0356(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0357.py b/src/bench/module_0357.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0357.py
++++ b/src/bench/module_0357.py
+@@ -1,2 +1,3 @@
+ def fn_0357(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0358.py b/src/bench/module_0358.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0358.py
++++ b/src/bench/module_0358.py
+@@ -1,2 +1,3 @@
+ def fn_0358(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0359.py b/src/bench/module_0359.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0359.py
++++ b/src/bench/module_0359.py
+@@ -1,2 +1,3 @@
+ def fn_0359(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0360.py b/src/bench/module_0360.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0360.py
++++ b/src/bench/module_0360.py
+@@ -1,2 +1,3 @@
+ def fn_0360(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0361.py b/src/bench/module_0361.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0361.py
++++ b/src/bench/module_0361.py
+@@ -1,2 +1,3 @@
+ def fn_0361(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0362.py b/src/bench/module_0362.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0362.py
++++ b/src/bench/module_0362.py
+@@ -1,2 +1,3 @@
+ def fn_0362(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0363.py b/src/bench/module_0363.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0363.py
++++ b/src/bench/module_0363.py
+@@ -1,2 +1,3 @@
+ def fn_0363(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0364.py b/src/bench/module_0364.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0364.py
++++ b/src/bench/module_0364.py
+@@ -1,2 +1,3 @@
+ def fn_0364(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0365.py b/src/bench/module_0365.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0365.py
++++ b/src/bench/module_0365.py
+@@ -1,2 +1,3 @@
+ def fn_0365(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0366.py b/src/bench/module_0366.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0366.py
++++ b/src/bench/module_0366.py
+@@ -1,2 +1,3 @@
+ def fn_0366(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0367.py b/src/bench/module_0367.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0367.py
++++ b/src/bench/module_0367.py
+@@ -1,2 +1,3 @@
+ def fn_0367(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0368.py b/src/bench/module_0368.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0368.py
++++ b/src/bench/module_0368.py
+@@ -1,2 +1,3 @@
+ def fn_0368(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0369.py b/src/bench/module_0369.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0369.py
++++ b/src/bench/module_0369.py
+@@ -1,2 +1,3 @@
+ def fn_0369(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0370.py b/src/bench/module_0370.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0370.py
++++ b/src/bench/module_0370.py
+@@ -1,2 +1,3 @@
+ def fn_0370(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0371.py b/src/bench/module_0371.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0371.py
++++ b/src/bench/module_0371.py
+@@ -1,2 +1,3 @@
+ def fn_0371(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0372.py b/src/bench/module_0372.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0372.py
++++ b/src/bench/module_0372.py
+@@ -1,2 +1,3 @@
+ def fn_0372(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0373.py b/src/bench/module_0373.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0373.py
++++ b/src/bench/module_0373.py
+@@ -1,2 +1,3 @@
+ def fn_0373(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0374.py b/src/bench/module_0374.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0374.py
++++ b/src/bench/module_0374.py
+@@ -1,2 +1,3 @@
+ def fn_0374(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0375.py b/src/bench/module_0375.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0375.py
++++ b/src/bench/module_0375.py
+@@ -1,2 +1,3 @@
+ def fn_0375(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0376.py b/src/bench/module_0376.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0376.py
++++ b/src/bench/module_0376.py
+@@ -1,2 +1,3 @@
+ def fn_0376(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0377.py b/src/bench/module_0377.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0377.py
++++ b/src/bench/module_0377.py
+@@ -1,2 +1,3 @@
+ def fn_0377(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0378.py b/src/bench/module_0378.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0378.py
++++ b/src/bench/module_0378.py
+@@ -1,2 +1,3 @@
+ def fn_0378(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0379.py b/src/bench/module_0379.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0379.py
++++ b/src/bench/module_0379.py
+@@ -1,2 +1,3 @@
+ def fn_0379(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0380.py b/src/bench/module_0380.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0380.py
++++ b/src/bench/module_0380.py
+@@ -1,2 +1,3 @@
+ def fn_0380(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0381.py b/src/bench/module_0381.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0381.py
++++ b/src/bench/module_0381.py
+@@ -1,2 +1,3 @@
+ def fn_0381(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0382.py b/src/bench/module_0382.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0382.py
++++ b/src/bench/module_0382.py
+@@ -1,2 +1,3 @@
+ def fn_0382(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0383.py b/src/bench/module_0383.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0383.py
++++ b/src/bench/module_0383.py
+@@ -1,2 +1,3 @@
+ def fn_0383(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0384.py b/src/bench/module_0384.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0384.py
++++ b/src/bench/module_0384.py
+@@ -1,2 +1,3 @@
+ def fn_0384(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0385.py b/src/bench/module_0385.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0385.py
++++ b/src/bench/module_0385.py
+@@ -1,2 +1,3 @@
+ def fn_0385(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0386.py b/src/bench/module_0386.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0386.py
++++ b/src/bench/module_0386.py
+@@ -1,2 +1,3 @@
+ def fn_0386(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0387.py b/src/bench/module_0387.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0387.py
++++ b/src/bench/module_0387.py
+@@ -1,2 +1,3 @@
+ def fn_0387(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0388.py b/src/bench/module_0388.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0388.py
++++ b/src/bench/module_0388.py
+@@ -1,2 +1,3 @@
+ def fn_0388(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0389.py b/src/bench/module_0389.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0389.py
++++ b/src/bench/module_0389.py
+@@ -1,2 +1,3 @@
+ def fn_0389(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0390.py b/src/bench/module_0390.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0390.py
++++ b/src/bench/module_0390.py
+@@ -1,2 +1,3 @@
+ def fn_0390(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0391.py b/src/bench/module_0391.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0391.py
++++ b/src/bench/module_0391.py
+@@ -1,2 +1,3 @@
+ def fn_0391(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0392.py b/src/bench/module_0392.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0392.py
++++ b/src/bench/module_0392.py
+@@ -1,2 +1,3 @@
+ def fn_0392(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0393.py b/src/bench/module_0393.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0393.py
++++ b/src/bench/module_0393.py
+@@ -1,2 +1,3 @@
+ def fn_0393(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0394.py b/src/bench/module_0394.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0394.py
++++ b/src/bench/module_0394.py
+@@ -1,2 +1,3 @@
+ def fn_0394(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0395.py b/src/bench/module_0395.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0395.py
++++ b/src/bench/module_0395.py
+@@ -1,2 +1,3 @@
+ def fn_0395(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0396.py b/src/bench/module_0396.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0396.py
++++ b/src/bench/module_0396.py
+@@ -1,2 +1,3 @@
+ def fn_0396(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0397.py b/src/bench/module_0397.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0397.py
++++ b/src/bench/module_0397.py
+@@ -1,2 +1,3 @@
+ def fn_0397(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0398.py b/src/bench/module_0398.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0398.py
++++ b/src/bench/module_0398.py
+@@ -1,2 +1,3 @@
+ def fn_0398(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0399.py b/src/bench/module_0399.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0399.py
++++ b/src/bench/module_0399.py
+@@ -1,2 +1,3 @@
+ def fn_0399(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0400.py b/src/bench/module_0400.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0400.py
++++ b/src/bench/module_0400.py
+@@ -1,2 +1,3 @@
+ def fn_0400(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0401.py b/src/bench/module_0401.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0401.py
++++ b/src/bench/module_0401.py
+@@ -1,2 +1,3 @@
+ def fn_0401(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0402.py b/src/bench/module_0402.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0402.py
++++ b/src/bench/module_0402.py
+@@ -1,2 +1,3 @@
+ def fn_0402(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0403.py b/src/bench/module_0403.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0403.py
++++ b/src/bench/module_0403.py
+@@ -1,2 +1,3 @@
+ def fn_0403(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0404.py b/src/bench/module_0404.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0404.py
++++ b/src/bench/module_0404.py
+@@ -1,2 +1,3 @@
+ def fn_0404(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0405.py b/src/bench/module_0405.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0405.py
++++ b/src/bench/module_0405.py
+@@ -1,2 +1,3 @@
+ def fn_0405(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0406.py b/src/bench/module_0406.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0406.py
++++ b/src/bench/module_0406.py
+@@ -1,2 +1,3 @@
+ def fn_0406(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0407.py b/src/bench/module_0407.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0407.py
++++ b/src/bench/module_0407.py
+@@ -1,2 +1,3 @@
+ def fn_0407(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0408.py b/src/bench/module_0408.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0408.py
++++ b/src/bench/module_0408.py
+@@ -1,2 +1,3 @@
+ def fn_0408(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0409.py b/src/bench/module_0409.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0409.py
++++ b/src/bench/module_0409.py
+@@ -1,2 +1,3 @@
+ def fn_0409(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0410.py b/src/bench/module_0410.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0410.py
++++ b/src/bench/module_0410.py
+@@ -1,2 +1,3 @@
+ def fn_0410(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0411.py b/src/bench/module_0411.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0411.py
++++ b/src/bench/module_0411.py
+@@ -1,2 +1,3 @@
+ def fn_0411(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0412.py b/src/bench/module_0412.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0412.py
++++ b/src/bench/module_0412.py
+@@ -1,2 +1,3 @@
+ def fn_0412(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0413.py b/src/bench/module_0413.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0413.py
++++ b/src/bench/module_0413.py
+@@ -1,2 +1,3 @@
+ def fn_0413(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0414.py b/src/bench/module_0414.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0414.py
++++ b/src/bench/module_0414.py
+@@ -1,2 +1,3 @@
+ def fn_0414(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0415.py b/src/bench/module_0415.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0415.py
++++ b/src/bench/module_0415.py
+@@ -1,2 +1,3 @@
+ def fn_0415(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0416.py b/src/bench/module_0416.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0416.py
++++ b/src/bench/module_0416.py
+@@ -1,2 +1,3 @@
+ def fn_0416(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0417.py b/src/bench/module_0417.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0417.py
++++ b/src/bench/module_0417.py
+@@ -1,2 +1,3 @@
+ def fn_0417(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0418.py b/src/bench/module_0418.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0418.py
++++ b/src/bench/module_0418.py
+@@ -1,2 +1,3 @@
+ def fn_0418(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0419.py b/src/bench/module_0419.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0419.py
++++ b/src/bench/module_0419.py
+@@ -1,2 +1,3 @@
+ def fn_0419(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0420.py b/src/bench/module_0420.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0420.py
++++ b/src/bench/module_0420.py
+@@ -1,2 +1,3 @@
+ def fn_0420(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0421.py b/src/bench/module_0421.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0421.py
++++ b/src/bench/module_0421.py
+@@ -1,2 +1,3 @@
+ def fn_0421(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0422.py b/src/bench/module_0422.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0422.py
++++ b/src/bench/module_0422.py
+@@ -1,2 +1,3 @@
+ def fn_0422(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0423.py b/src/bench/module_0423.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0423.py
++++ b/src/bench/module_0423.py
+@@ -1,2 +1,3 @@
+ def fn_0423(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0424.py b/src/bench/module_0424.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0424.py
++++ b/src/bench/module_0424.py
+@@ -1,2 +1,3 @@
+ def fn_0424(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0425.py b/src/bench/module_0425.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0425.py
++++ b/src/bench/module_0425.py
+@@ -1,2 +1,3 @@
+ def fn_0425(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0426.py b/src/bench/module_0426.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0426.py
++++ b/src/bench/module_0426.py
+@@ -1,2 +1,3 @@
+ def fn_0426(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0427.py b/src/bench/module_0427.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0427.py
++++ b/src/bench/module_0427.py
+@@ -1,2 +1,3 @@
+ def fn_0427(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0428.py b/src/bench/module_0428.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0428.py
++++ b/src/bench/module_0428.py
+@@ -1,2 +1,3 @@
+ def fn_0428(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0429.py b/src/bench/module_0429.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0429.py
++++ b/src/bench/module_0429.py
+@@ -1,2 +1,3 @@
+ def fn_0429(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0430.py b/src/bench/module_0430.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0430.py
++++ b/src/bench/module_0430.py
+@@ -1,2 +1,3 @@
+ def fn_0430(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0431.py b/src/bench/module_0431.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0431.py
++++ b/src/bench/module_0431.py
+@@ -1,2 +1,3 @@
+ def fn_0431(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0432.py b/src/bench/module_0432.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0432.py
++++ b/src/bench/module_0432.py
+@@ -1,2 +1,3 @@
+ def fn_0432(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0433.py b/src/bench/module_0433.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0433.py
++++ b/src/bench/module_0433.py
+@@ -1,2 +1,3 @@
+ def fn_0433(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0434.py b/src/bench/module_0434.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0434.py
++++ b/src/bench/module_0434.py
+@@ -1,2 +1,3 @@
+ def fn_0434(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0435.py b/src/bench/module_0435.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0435.py
++++ b/src/bench/module_0435.py
+@@ -1,2 +1,3 @@
+ def fn_0435(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0436.py b/src/bench/module_0436.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0436.py
++++ b/src/bench/module_0436.py
+@@ -1,2 +1,3 @@
+ def fn_0436(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0437.py b/src/bench/module_0437.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0437.py
++++ b/src/bench/module_0437.py
+@@ -1,2 +1,3 @@
+ def fn_0437(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0438.py b/src/bench/module_0438.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0438.py
++++ b/src/bench/module_0438.py
+@@ -1,2 +1,3 @@
+ def fn_0438(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0439.py b/src/bench/module_0439.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0439.py
++++ b/src/bench/module_0439.py
+@@ -1,2 +1,3 @@
+ def fn_0439(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0440.py b/src/bench/module_0440.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0440.py
++++ b/src/bench/module_0440.py
+@@ -1,2 +1,3 @@
+ def fn_0440(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0441.py b/src/bench/module_0441.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0441.py
++++ b/src/bench/module_0441.py
+@@ -1,2 +1,3 @@
+ def fn_0441(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0442.py b/src/bench/module_0442.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0442.py
++++ b/src/bench/module_0442.py
+@@ -1,2 +1,3 @@
+ def fn_0442(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0443.py b/src/bench/module_0443.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0443.py
++++ b/src/bench/module_0443.py
+@@ -1,2 +1,3 @@
+ def fn_0443(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0444.py b/src/bench/module_0444.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0444.py
++++ b/src/bench/module_0444.py
+@@ -1,2 +1,3 @@
+ def fn_0444(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0445.py b/src/bench/module_0445.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0445.py
++++ b/src/bench/module_0445.py
+@@ -1,2 +1,3 @@
+ def fn_0445(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0446.py b/src/bench/module_0446.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0446.py
++++ b/src/bench/module_0446.py
+@@ -1,2 +1,3 @@
+ def fn_0446(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0447.py b/src/bench/module_0447.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0447.py
++++ b/src/bench/module_0447.py
+@@ -1,2 +1,3 @@
+ def fn_0447(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0448.py b/src/bench/module_0448.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0448.py
++++ b/src/bench/module_0448.py
+@@ -1,2 +1,3 @@
+ def fn_0448(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0449.py b/src/bench/module_0449.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0449.py
++++ b/src/bench/module_0449.py
+@@ -1,2 +1,3 @@
+ def fn_0449(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0450.py b/src/bench/module_0450.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0450.py
++++ b/src/bench/module_0450.py
+@@ -1,2 +1,3 @@
+ def fn_0450(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0451.py b/src/bench/module_0451.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0451.py
++++ b/src/bench/module_0451.py
+@@ -1,2 +1,3 @@
+ def fn_0451(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0452.py b/src/bench/module_0452.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0452.py
++++ b/src/bench/module_0452.py
+@@ -1,2 +1,3 @@
+ def fn_0452(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0453.py b/src/bench/module_0453.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0453.py
++++ b/src/bench/module_0453.py
+@@ -1,2 +1,3 @@
+ def fn_0453(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0454.py b/src/bench/module_0454.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0454.py
++++ b/src/bench/module_0454.py
+@@ -1,2 +1,3 @@
+ def fn_0454(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0455.py b/src/bench/module_0455.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0455.py
++++ b/src/bench/module_0455.py
+@@ -1,2 +1,3 @@
+ def fn_0455(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0456.py b/src/bench/module_0456.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0456.py
++++ b/src/bench/module_0456.py
+@@ -1,2 +1,3 @@
+ def fn_0456(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0457.py b/src/bench/module_0457.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0457.py
++++ b/src/bench/module_0457.py
+@@ -1,2 +1,3 @@
+ def fn_0457(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0458.py b/src/bench/module_0458.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0458.py
++++ b/src/bench/module_0458.py
+@@ -1,2 +1,3 @@
+ def fn_0458(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0459.py b/src/bench/module_0459.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0459.py
++++ b/src/bench/module_0459.py
+@@ -1,2 +1,3 @@
+ def fn_0459(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0460.py b/src/bench/module_0460.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0460.py
++++ b/src/bench/module_0460.py
+@@ -1,2 +1,3 @@
+ def fn_0460(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0461.py b/src/bench/module_0461.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0461.py
++++ b/src/bench/module_0461.py
+@@ -1,2 +1,3 @@
+ def fn_0461(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0462.py b/src/bench/module_0462.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0462.py
++++ b/src/bench/module_0462.py
+@@ -1,2 +1,3 @@
+ def fn_0462(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0463.py b/src/bench/module_0463.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0463.py
++++ b/src/bench/module_0463.py
+@@ -1,2 +1,3 @@
+ def fn_0463(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0464.py b/src/bench/module_0464.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0464.py
++++ b/src/bench/module_0464.py
+@@ -1,2 +1,3 @@
+ def fn_0464(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0465.py b/src/bench/module_0465.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0465.py
++++ b/src/bench/module_0465.py
+@@ -1,2 +1,3 @@
+ def fn_0465(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0466.py b/src/bench/module_0466.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0466.py
++++ b/src/bench/module_0466.py
+@@ -1,2 +1,3 @@
+ def fn_0466(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0467.py b/src/bench/module_0467.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0467.py
++++ b/src/bench/module_0467.py
+@@ -1,2 +1,3 @@
+ def fn_0467(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0468.py b/src/bench/module_0468.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0468.py
++++ b/src/bench/module_0468.py
+@@ -1,2 +1,3 @@
+ def fn_0468(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0469.py b/src/bench/module_0469.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0469.py
++++ b/src/bench/module_0469.py
+@@ -1,2 +1,3 @@
+ def fn_0469(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0470.py b/src/bench/module_0470.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0470.py
++++ b/src/bench/module_0470.py
+@@ -1,2 +1,3 @@
+ def fn_0470(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0471.py b/src/bench/module_0471.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0471.py
++++ b/src/bench/module_0471.py
+@@ -1,2 +1,3 @@
+ def fn_0471(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0472.py b/src/bench/module_0472.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0472.py
++++ b/src/bench/module_0472.py
+@@ -1,2 +1,3 @@
+ def fn_0472(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0473.py b/src/bench/module_0473.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0473.py
++++ b/src/bench/module_0473.py
+@@ -1,2 +1,3 @@
+ def fn_0473(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0474.py b/src/bench/module_0474.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0474.py
++++ b/src/bench/module_0474.py
+@@ -1,2 +1,3 @@
+ def fn_0474(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0475.py b/src/bench/module_0475.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0475.py
++++ b/src/bench/module_0475.py
+@@ -1,2 +1,3 @@
+ def fn_0475(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0476.py b/src/bench/module_0476.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0476.py
++++ b/src/bench/module_0476.py
+@@ -1,2 +1,3 @@
+ def fn_0476(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0477.py b/src/bench/module_0477.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0477.py
++++ b/src/bench/module_0477.py
+@@ -1,2 +1,3 @@
+ def fn_0477(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0478.py b/src/bench/module_0478.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0478.py
++++ b/src/bench/module_0478.py
+@@ -1,2 +1,3 @@
+ def fn_0478(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0479.py b/src/bench/module_0479.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0479.py
++++ b/src/bench/module_0479.py
+@@ -1,2 +1,3 @@
+ def fn_0479(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0480.py b/src/bench/module_0480.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0480.py
++++ b/src/bench/module_0480.py
+@@ -1,2 +1,3 @@
+ def fn_0480(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0481.py b/src/bench/module_0481.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0481.py
++++ b/src/bench/module_0481.py
+@@ -1,2 +1,3 @@
+ def fn_0481(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0482.py b/src/bench/module_0482.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0482.py
++++ b/src/bench/module_0482.py
+@@ -1,2 +1,3 @@
+ def fn_0482(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0483.py b/src/bench/module_0483.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0483.py
++++ b/src/bench/module_0483.py
+@@ -1,2 +1,3 @@
+ def fn_0483(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0484.py b/src/bench/module_0484.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0484.py
++++ b/src/bench/module_0484.py
+@@ -1,2 +1,3 @@
+ def fn_0484(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0485.py b/src/bench/module_0485.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0485.py
++++ b/src/bench/module_0485.py
+@@ -1,2 +1,3 @@
+ def fn_0485(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0486.py b/src/bench/module_0486.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0486.py
++++ b/src/bench/module_0486.py
+@@ -1,2 +1,3 @@
+ def fn_0486(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0487.py b/src/bench/module_0487.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0487.py
++++ b/src/bench/module_0487.py
+@@ -1,2 +1,3 @@
+ def fn_0487(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0488.py b/src/bench/module_0488.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0488.py
++++ b/src/bench/module_0488.py
+@@ -1,2 +1,3 @@
+ def fn_0488(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0489.py b/src/bench/module_0489.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0489.py
++++ b/src/bench/module_0489.py
+@@ -1,2 +1,3 @@
+ def fn_0489(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0490.py b/src/bench/module_0490.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0490.py
++++ b/src/bench/module_0490.py
+@@ -1,2 +1,3 @@
+ def fn_0490(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0491.py b/src/bench/module_0491.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0491.py
++++ b/src/bench/module_0491.py
+@@ -1,2 +1,3 @@
+ def fn_0491(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0492.py b/src/bench/module_0492.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0492.py
++++ b/src/bench/module_0492.py
+@@ -1,2 +1,3 @@
+ def fn_0492(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0493.py b/src/bench/module_0493.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0493.py
++++ b/src/bench/module_0493.py
+@@ -1,2 +1,3 @@
+ def fn_0493(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0494.py b/src/bench/module_0494.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0494.py
++++ b/src/bench/module_0494.py
+@@ -1,2 +1,3 @@
+ def fn_0494(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0495.py b/src/bench/module_0495.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0495.py
++++ b/src/bench/module_0495.py
+@@ -1,2 +1,3 @@
+ def fn_0495(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0496.py b/src/bench/module_0496.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0496.py
++++ b/src/bench/module_0496.py
+@@ -1,2 +1,3 @@
+ def fn_0496(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0497.py b/src/bench/module_0497.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0497.py
++++ b/src/bench/module_0497.py
+@@ -1,2 +1,3 @@
+ def fn_0497(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0498.py b/src/bench/module_0498.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0498.py
++++ b/src/bench/module_0498.py
+@@ -1,2 +1,3 @@
+ def fn_0498(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0499.py b/src/bench/module_0499.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0499.py
++++ b/src/bench/module_0499.py
+@@ -1,2 +1,3 @@
+ def fn_0499(value):
+-    return value
++    # benchmark change
++    return value + 1
+diff --git a/src/bench/module_0500.py b/src/bench/module_0500.py
+index 1111111..2222222 100644
+--- a/src/bench/module_0500.py
++++ b/src/bench/module_0500.py
+@@ -1,2 +1,3 @@
+ def fn_0500(value):
+-    return value
++    # benchmark change
++    return value + 1

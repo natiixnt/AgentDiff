@@ -212,6 +212,22 @@ agentdiff analyze --format sarif --output agentdiff.sarif.json
 
 Use your platform SARIF uploader (for example, GitHub code scanning upload action) to attach findings to PRs.
 
+## Benchmark
+
+Baseline performance tooling is included for large diffs:
+
+```bash
+python3 benchmarks/run_benchmark.py --diff benchmarks/fixtures/large_500.diff --min-files 500
+```
+
+Quick threshold check (CI-friendly):
+
+```bash
+./scripts/check_benchmark.sh
+```
+
+Current baseline snapshot is tracked in `benchmarks/BASELINE.md`.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
