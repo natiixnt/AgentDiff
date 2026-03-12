@@ -20,6 +20,7 @@ AgentDiff gives you a reviewer-oriented view of that output:
 - monorepo-aware workspace grouping
 - related-file context
 - unified/side-by-side diff mode with optional scroll sync
+- grouped viewer search/filter controls (query, risk, category)
 
 ## Why `git diff` Is Not Enough for Agent Changes
 

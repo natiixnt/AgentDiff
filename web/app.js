@@ -11,6 +11,11 @@ const appState = {
     activeFilePath: null,
     diffMode: "unified",
     syncScroll: true,
+    filters: {
+      query: "",
+      risk: "all",
+      category: "all",
+    },
   },
   nav: {
     groupEls: [],
@@ -27,6 +32,11 @@ function defaultUiState() {
     activeFilePath: null,
     diffMode: "unified",
     syncScroll: true,
+    filters: {
+      query: "",
+      risk: "all",
+      category: "all",
+    },
   };
 }
 
@@ -67,16 +77,27 @@ function loadUiState() {
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object") return;
 
-    appState.ui.collapsedGroups = parsed.collapsedGroups && typeof parsed.collapsedGroups === "object"
-      ? parsed.collapsedGroups
-      : {};
-    appState.ui.visitedFiles = parsed.visitedFiles && typeof parsed.visitedFiles === "object"
-      ? parsed.visitedFiles
-      : {};
+    appState.ui.collapsedGroups =
+      parsed.collapsedGroups && typeof parsed.collapsedGroups === "object"
+        ? parsed.collapsedGroups
+        : {};
+    appState.ui.visitedFiles =
+      parsed.visitedFiles && typeof parsed.visitedFiles === "object" ? parsed.visitedFiles : {};
     appState.ui.notes = parsed.notes && typeof parsed.notes === "object" ? parsed.notes : {};
-    appState.ui.activeFilePath = typeof parsed.activeFilePath === "string" ? parsed.activeFilePath : null;
+    appState.ui.activeFilePath =
+      typeof parsed.activeFilePath === "string" ? parsed.activeFilePath : null;
     appState.ui.diffMode = parsed.diffMode === "split" ? "split" : "unified";
     appState.ui.syncScroll = parsed.syncScroll !== false;
+
+    const parsedFilters = parsed.filters && typeof parsed.filters === "object" ? parsed.filters : {};
+    appState.ui.filters = {
+      query: typeof parsedFilters.query === "string" ? parsedFilters.query : "",
+      risk:
+        parsedFilters.risk === "high" || parsedFilters.risk === "medium" || parsedFilters.risk === "low"
+          ? parsedFilters.risk
+          : "all",
+      category: typeof parsedFilters.category === "string" ? parsedFilters.category : "all",
+    };
   } catch (_error) {
     // Ignore corrupt/inaccessible localStorage state and continue with defaults.
   }
@@ -94,6 +115,7 @@ function persistUiState() {
         activeFilePath: appState.ui.activeFilePath,
         diffMode: appState.ui.diffMode,
         syncScroll: appState.ui.syncScroll,
+        filters: appState.ui.filters,
       })
     );
   } catch (_error) {
@@ -119,6 +141,8 @@ function resetUiState() {
   appState.ui = defaultUiState();
 
   if (appState.analysis) {
+    populateCategoryFilter(appState.analysis);
+    syncFilterControls();
     renderSummary(appState.analysis);
     renderGroups(appState.analysis);
     renderRiskSidebar(appState.analysis);
@@ -269,12 +293,52 @@ function buildSplitDiff(patchText) {
   return split;
 }
 
+function lower(value) {
+  return String(value || "").toLowerCase();
+}
+
+function matchesFilters(file, groupTitle, filters) {
+  if (filters.risk !== "all" && file.risk_level !== filters.risk) {
+    return false;
+  }
+
+  if (filters.category !== "all" && file.category !== filters.category) {
+    return false;
+  }
+
+  if (!filters.query) {
+    return true;
+  }
+
+  const query = lower(filters.query);
+  return lower(file.path).includes(query) || lower(groupTitle).includes(query);
+}
+
+function updateMatchCount(groupCount, fileCount) {
+  const el = document.getElementById("match-count");
+  el.textContent = `${groupCount} groups · ${fileCount} files`;
+}
+
 function renderGroups(data) {
   const filesByPath = new Map((data.files || []).map((file) => [file.path, file]));
   const groupsRoot = document.getElementById("groups");
   groupsRoot.innerHTML = "";
 
+  let matchedGroupCount = 0;
+  let matchedFileCount = 0;
+
   for (const group of data.groups || []) {
+    const visibleFiles = group.files
+      .map((path) => filesByPath.get(path))
+      .filter((file) => file && matchesFilters(file, group.title, appState.ui.filters));
+
+    if (!visibleFiles.length) {
+      continue;
+    }
+
+    matchedGroupCount += 1;
+    matchedFileCount += visibleFiles.length;
+
     const details = document.createElement("details");
     details.className = "group";
     details.dataset.groupId = group.id;
@@ -298,15 +362,12 @@ function renderGroups(data) {
 
     const meta = document.createElement("span");
     meta.className = "group-meta";
-    meta.textContent = `${group.files.length} files · ${group.risk} risk`;
+    meta.textContent = `${visibleFiles.length}/${group.files.length} files · ${group.risk} risk`;
 
     summary.append(title, meta);
     details.appendChild(summary);
 
-    for (const filePath of group.files) {
-      const file = filesByPath.get(filePath);
-      if (!file) continue;
-
+    for (const file of visibleFiles) {
       const fileCard = document.createElement("div");
       fileCard.className = "file-card";
       fileCard.dataset.filePath = file.path;
@@ -389,6 +450,7 @@ function renderGroups(data) {
     groupsRoot.appendChild(details);
   }
 
+  updateMatchCount(matchedGroupCount, matchedFileCount);
   refreshNavigationState();
   applyDiffMode();
 }
@@ -508,10 +570,7 @@ function setActiveFile(index, scroll = true) {
 
 function moveFile(step) {
   if (!appState.nav.fileEls.length) return;
-  const next = Math.max(
-    0,
-    Math.min(appState.nav.fileEls.length - 1, appState.nav.activeFileIndex + step)
-  );
+  const next = Math.max(0, Math.min(appState.nav.fileEls.length - 1, appState.nav.activeFileIndex + step));
   setActiveFile(next);
 }
 
@@ -577,6 +636,43 @@ function toggleShortcutOverlay(forceVisible) {
   overlay.setAttribute("aria-hidden", visible ? "false" : "true");
 }
 
+function populateCategoryFilter(data) {
+  const categorySelect = document.getElementById("category-filter");
+  const categories = Array.from(
+    new Set((data.files || []).map((file) => String(file.category || "other")))
+  ).sort();
+
+  const current = appState.ui.filters.category;
+  categorySelect.innerHTML = '<option value="all">Category: all</option>';
+
+  for (const category of categories) {
+    const option = document.createElement("option");
+    option.value = category;
+    option.textContent = `Category: ${category}`;
+    categorySelect.appendChild(option);
+  }
+
+  if (current !== "all" && !categories.includes(current)) {
+    appState.ui.filters.category = "all";
+  }
+}
+
+function syncFilterControls() {
+  const searchInput = document.getElementById("group-search");
+  const riskFilter = document.getElementById("risk-filter");
+  const categoryFilter = document.getElementById("category-filter");
+
+  searchInput.value = appState.ui.filters.query;
+  riskFilter.value = appState.ui.filters.risk;
+  categoryFilter.value = appState.ui.filters.category;
+}
+
+function applyFiltersAndRender() {
+  if (!appState.analysis) return;
+  renderGroups(appState.analysis);
+  schedulePersist();
+}
+
 function bindControls() {
   const helpButton = document.getElementById("shortcut-help-btn");
   const overlay = document.getElementById("shortcut-overlay");
@@ -584,6 +680,9 @@ function bindControls() {
   const unifiedButton = document.getElementById("mode-unified");
   const splitButton = document.getElementById("mode-split");
   const syncCheckbox = document.getElementById("sync-scroll");
+  const searchInput = document.getElementById("group-search");
+  const riskFilter = document.getElementById("risk-filter");
+  const categoryFilter = document.getElementById("category-filter");
 
   helpButton.addEventListener("click", () => toggleShortcutOverlay());
   overlay.addEventListener("click", (event) => {
@@ -615,6 +714,21 @@ function bindControls() {
     schedulePersist();
   });
 
+  searchInput.addEventListener("input", () => {
+    appState.ui.filters.query = searchInput.value;
+    applyFiltersAndRender();
+  });
+
+  riskFilter.addEventListener("change", () => {
+    appState.ui.filters.risk = riskFilter.value;
+    applyFiltersAndRender();
+  });
+
+  categoryFilter.addEventListener("change", () => {
+    appState.ui.filters.category = categoryFilter.value;
+    applyFiltersAndRender();
+  });
+
   window.addEventListener("keydown", (event) => {
     const target = event.target;
     if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) {
@@ -629,6 +743,13 @@ function bindControls() {
 
     if (event.key === "Escape") {
       toggleShortcutOverlay(false);
+      return;
+    }
+
+    if (event.key === "/") {
+      event.preventDefault();
+      searchInput.focus();
+      searchInput.select();
       return;
     }
 
@@ -663,6 +784,7 @@ function bindControls() {
   });
 
   applyDiffMode();
+  syncFilterControls();
 }
 
 async function bootstrap() {
@@ -675,6 +797,7 @@ async function bootstrap() {
   appState.analysis = data;
   appState.storageKey = computeStorageKey(data);
   loadUiState();
+  populateCategoryFilter(data);
 
   renderSummary(data);
   renderGroups(data);

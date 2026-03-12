@@ -136,6 +136,31 @@ h3 {
   flex-wrap: wrap;
 }
 
+.search-controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.5fr) minmax(120px, 0.7fr) minmax(120px, 0.7fr) auto;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+
+.search-controls input,
+.search-controls select {
+  border: 1px solid #b7c4d3;
+  border-radius: 8px;
+  padding: 0.38rem 0.5rem;
+  font-size: 0.82rem;
+  color: #203148;
+  background: #fff;
+}
+
+.match-count {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .mode-btn {
   border: 1px solid #9eb4cc;
   border-radius: 999px;
@@ -480,6 +505,10 @@ h3 {
   .grouped-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .search-controls {
+    grid-template-columns: 1fr;
   }
 
   .split-diff {

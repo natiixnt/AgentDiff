@@ -40,6 +40,19 @@
             </label>
           </div>
         </div>
+        <div class="search-controls">
+          <input id="group-search" type="search" placeholder="Filter by file path or group title" />
+          <select id="risk-filter">
+            <option value="all">Risk: all</option>
+            <option value="high">Risk: high</option>
+            <option value="medium">Risk: medium</option>
+            <option value="low">Risk: low</option>
+          </select>
+          <select id="category-filter">
+            <option value="all">Category: all</option>
+          </select>
+          <span id="match-count" class="match-count">0 groups · 0 files</span>
+        </div>
         <div id="groups"></div>
       </section>
 
@@ -64,6 +77,7 @@
           <li><code>]</code> Next group</li>
           <li><code>[</code> Previous group</li>
           <li><code>o</code> Toggle current group</li>
+          <li><code>/</code> Focus search</li>
         </ul>
       </div>
     </div>
