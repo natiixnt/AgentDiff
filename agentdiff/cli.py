@@ -12,6 +12,7 @@ from .ignore import read_ignore_patterns
 from .markdown import analysis_to_markdown
 from .plan_validator import validate_execution_plan
 from .sarif import analysis_to_sarif
+from .secret_ignore import read_secret_ignore_patterns
 from .webserver import run_server
 
 
@@ -65,6 +66,12 @@ def _resolve_ignore_patterns(ignore_file_path: str | None) -> list[str]:
     return read_ignore_patterns()
 
 
+def _resolve_secret_ignore_patterns(secret_ignore_file_path: str | None) -> list[str]:
+    if secret_ignore_file_path:
+        return read_secret_ignore_patterns(secret_ignore_file_path)
+    return read_secret_ignore_patterns()
+
+
 def _write_output(payload: dict[str, Any] | str, output_path: str | None) -> None:
     if isinstance(payload, str):
         rendered = payload
@@ -102,6 +109,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--ignore-file",
         help="Path to .agentdiffignore-style file (default: ./.agentdiffignore if present)",
     )
+    analyze_parser.add_argument(
+        "--secrets-ignore-file",
+        help="Path to secret-ignore file (default: ./.agentdiff-secrets-ignore if present)",
+    )
 
     serve_parser = subparsers.add_parser("serve", help="Start local web UI for diff analysis")
     serve_parser.add_argument("--diff", help="Path to a git diff file. Defaults to current `git diff`.")
@@ -112,6 +123,10 @@ def build_parser() -> argparse.ArgumentParser:
     serve_parser.add_argument(
         "--ignore-file",
         help="Path to .agentdiffignore-style file (default: ./.agentdiffignore if present)",
+    )
+    serve_parser.add_argument(
+        "--secrets-ignore-file",
+        help="Path to secret-ignore file (default: ./.agentdiff-secrets-ignore if present)",
     )
     serve_parser.add_argument(
         "--analysis",
@@ -137,7 +152,13 @@ def main(argv: list[str] | None = None) -> int:
             )
             plan_data = _read_plan(args.plan)
             ignore_patterns = _resolve_ignore_patterns(args.ignore_file)
-            result = analyze_diff(diff_text, plan_data, ignore_patterns=ignore_patterns)
+            secret_ignore_patterns = _resolve_secret_ignore_patterns(args.secrets_ignore_file)
+            result = analyze_diff(
+                diff_text,
+                plan_data,
+                ignore_patterns=ignore_patterns,
+                secret_ignore_patterns=secret_ignore_patterns,
+            )
             if args.format == "sarif":
                 output_payload: dict[str, Any] | str = analysis_to_sarif(result)
             elif args.format == "markdown":
@@ -159,7 +180,13 @@ def main(argv: list[str] | None = None) -> int:
                 )
                 plan_data = _read_plan(args.plan)
                 ignore_patterns = _resolve_ignore_patterns(args.ignore_file)
-                analysis = analyze_diff(diff_text, plan_data, ignore_patterns=ignore_patterns)
+                secret_ignore_patterns = _resolve_secret_ignore_patterns(args.secrets_ignore_file)
+                analysis = analyze_diff(
+                    diff_text,
+                    plan_data,
+                    ignore_patterns=ignore_patterns,
+                    secret_ignore_patterns=secret_ignore_patterns,
+                )
             run_server(analysis, host=args.host, port=args.port)
             return 0
 

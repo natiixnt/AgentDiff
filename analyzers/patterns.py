@@ -5,6 +5,7 @@ from pathlib import PurePosixPath
 from typing import Iterable
 
 from agentdiff.models import FileChange
+from agentdiff.secret_ignore import secret_line_is_ignored
 
 SIGNATURE_PATTERNS = [
     re.compile(r"^\s*def\s+\w+\s*\("),
@@ -29,6 +30,20 @@ AUTH_LINE_PATTERNS = [
 CONFIG_LINE_PATTERNS = [
     re.compile(r"\b(feature_flag|timeout|retries|base_url|endpoint)\b", re.IGNORECASE),
     re.compile(r"\b(env|config|setting)\b", re.IGNORECASE),
+]
+
+SECRET_LINE_PATTERNS = [
+    re.compile(
+        r"""(?ix)
+        \b(password|passwd|pwd|secret|api[_-]?key|token|private[_-]?key|client[_-]?secret)\b
+        \s*[:=]\s*
+        ['"][^'"]{6,}['"]
+        """
+    ),
+    re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
+    re.compile(r"-----BEGIN (RSA|EC|OPENSSH|DSA) PRIVATE KEY-----"),
+    re.compile(r"\bgh[pousr]_[A-Za-z0-9_]{20,}\b"),
+    re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"),
 ]
 
 CODE_EXTS = {
@@ -107,7 +122,23 @@ def _is_auth_change(change: FileChange, category: str) -> bool:
     return any(_matches_any(line, AUTH_LINE_PATTERNS) for line in combined)
 
 
-def detect_pattern_confidence(change: FileChange, category: str) -> dict[str, float]:
+def _secret_candidate_lines(change: FileChange, secret_ignore_patterns: list[str] | None) -> list[str]:
+    ignored = list(secret_ignore_patterns or [])
+    candidates: list[str] = []
+    for line in change.added_lines:
+        if not line.strip():
+            continue
+        if ignored and secret_line_is_ignored(line, ignored):
+            continue
+        candidates.append(line)
+    return candidates
+
+
+def detect_pattern_confidence(
+    change: FileChange,
+    category: str,
+    secret_ignore_patterns: list[str] | None = None,
+) -> dict[str, float]:
     confidence: dict[str, float] = {}
     combined = change.added_lines + change.removed_lines
 
@@ -152,6 +183,11 @@ def detect_pattern_confidence(change: FileChange, category: str) -> dict[str, fl
     if _is_probably_behavior_change(change):
         churn = len([line for line in combined if line.strip()])
         confidence["behavior_change"] = min(0.9, 0.56 + (churn / 240))
+
+    secret_lines = _secret_candidate_lines(change, secret_ignore_patterns)
+    secret_hits = _match_count(secret_lines, SECRET_LINE_PATTERNS)
+    if secret_hits > 0:
+        confidence["secret_exposure"] = min(0.98, 0.8 + (secret_hits * 0.08))
 
     # Clamp and round to keep payload stable and readable.
     return {pattern: round(max(0.0, min(1.0, value)), 2) for pattern, value in confidence.items()}

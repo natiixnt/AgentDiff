@@ -25,6 +25,10 @@ def assess_risk(file_data: dict[str, Any]) -> tuple[int, str, list[str]]:
         score += 4
         reasons.append("Touches authentication/authorization code")
 
+    if "secret_exposure" in patterns:
+        score += 5
+        reasons.append("Signal: possible secret/credential exposure")
+
     if "schema_change" in patterns:
         score += 4
         reasons.append("Modifies schema or migration surface")

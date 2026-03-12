@@ -106,6 +106,12 @@ Use ignore patterns from `.agentdiffignore` automatically (or pass a custom path
 agentdiff analyze --ignore-file .agentdiffignore
 ```
 
+Tune secret detector false positives with `.agentdiff-secrets-ignore` (or custom file):
+
+```bash
+agentdiff analyze --secrets-ignore-file .agentdiff-secrets-ignore
+```
+
 Analyze a specific diff and write JSON output:
 
 ```bash

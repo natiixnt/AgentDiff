@@ -59,10 +59,12 @@ def _augment_extractions(files: list[dict[str, Any]]) -> None:
                     modified["change_type"] = "refactor"
 
 
-def _file_record(change: FileChange) -> dict[str, Any]:
+def _file_record(change: FileChange, secret_ignore_patterns: list[str] | None = None) -> dict[str, Any]:
     path = change.path
     category = categorize_file(path)
-    pattern_confidence = detect_pattern_confidence(change, category)
+    pattern_confidence = detect_pattern_confidence(
+        change, category, secret_ignore_patterns=secret_ignore_patterns
+    )
     pattern_set = set(pattern_confidence.keys())
     patterns = sorted(pattern_set)
     ast_hint = infer_ast_change_type(change, pattern_set)
@@ -160,6 +162,7 @@ def analyze_diff(
     diff_text: str,
     plan_data: dict[str, Any] | None = None,
     ignore_patterns: list[str] | None = None,
+    secret_ignore_patterns: list[str] | None = None,
 ) -> dict[str, Any]:
     parsed = parse_git_diff(diff_text)
     ignored_patterns = list(ignore_patterns or [])
@@ -174,7 +177,7 @@ def analyze_diff(
             filtered.append(change)
         parsed = filtered
 
-    files = [_file_record(change) for change in parsed]
+    files = [_file_record(change, secret_ignore_patterns=secret_ignore_patterns) for change in parsed]
 
     _augment_extractions(files)
 
