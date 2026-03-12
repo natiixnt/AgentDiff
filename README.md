@@ -130,6 +130,12 @@ Generate a PR-ready markdown summary:
 agentdiff analyze --diff examples/sample.diff --plan examples/sample_plan.json --format markdown --output agentdiff-summary.md
 ```
 
+Export a standalone HTML report (single file, no server required):
+
+```bash
+agentdiff analyze --diff examples/sample.diff --plan examples/sample_plan.json --format html --output agentdiff-report.html
+```
+
 Serve the web app from precomputed analysis:
 
 ```bash

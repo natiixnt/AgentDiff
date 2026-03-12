@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from .analyzer import analyze_diff
+from .html_report import analysis_to_static_html
 from .ignore import read_ignore_patterns
 from .markdown import analysis_to_markdown
 from .plan_validator import validate_execution_plan
@@ -101,7 +102,7 @@ def build_parser() -> argparse.ArgumentParser:
     analyze_parser.add_argument("--output", help="Optional output file for analysis JSON")
     analyze_parser.add_argument(
         "--format",
-        choices=["json", "sarif", "markdown"],
+        choices=["json", "sarif", "markdown", "html"],
         default="json",
         help="Output format for analyze command (default: json)",
     )
@@ -163,6 +164,8 @@ def main(argv: list[str] | None = None) -> int:
                 output_payload: dict[str, Any] | str = analysis_to_sarif(result)
             elif args.format == "markdown":
                 output_payload = analysis_to_markdown(result)
+            elif args.format == "html":
+                output_payload = analysis_to_static_html(result)
             else:
                 output_payload = result
             _write_output(output_payload, args.output)
