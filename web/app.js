@@ -1,7 +1,20 @@
-let navState = {
-  groupEls: [],
-  fileEls: [],
-  activeFileIndex: -1,
+const STORAGE_PREFIX = "agentdiff.reviewState.v1";
+
+const appState = {
+  analysis: null,
+  storageKey: null,
+  persistTimer: null,
+  ui: {
+    collapsedGroups: {},
+    visitedFiles: {},
+    notes: {},
+    activeFilePath: null,
+  },
+  nav: {
+    groupEls: [],
+    fileEls: [],
+    activeFileIndex: -1,
+  },
 };
 
 function makeCard(label, value) {
@@ -25,6 +38,86 @@ function riskBadge(level) {
   el.className = `badge ${level}`;
   el.textContent = level;
   return el;
+}
+
+function computeStorageKey(data) {
+  const paths = (data.files || []).map((file) => file.path).join("|");
+  return `${STORAGE_PREFIX}:${paths}`;
+}
+
+function loadUiState() {
+  if (!appState.storageKey) return;
+  try {
+    const raw = window.localStorage.getItem(appState.storageKey);
+    if (!raw) return;
+
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") return;
+
+    appState.ui.collapsedGroups = parsed.collapsedGroups && typeof parsed.collapsedGroups === "object"
+      ? parsed.collapsedGroups
+      : {};
+    appState.ui.visitedFiles = parsed.visitedFiles && typeof parsed.visitedFiles === "object"
+      ? parsed.visitedFiles
+      : {};
+    appState.ui.notes = parsed.notes && typeof parsed.notes === "object"
+      ? parsed.notes
+      : {};
+    appState.ui.activeFilePath = typeof parsed.activeFilePath === "string" ? parsed.activeFilePath : null;
+  } catch (_error) {
+    // Ignore corrupt/inaccessible localStorage state and continue with defaults.
+  }
+}
+
+function persistUiState() {
+  if (!appState.storageKey) return;
+  try {
+    window.localStorage.setItem(
+      appState.storageKey,
+      JSON.stringify({
+        collapsedGroups: appState.ui.collapsedGroups,
+        visitedFiles: appState.ui.visitedFiles,
+        notes: appState.ui.notes,
+        activeFilePath: appState.ui.activeFilePath,
+      })
+    );
+  } catch (_error) {
+    // Ignore storage quota/access failures in local mode.
+  }
+}
+
+function schedulePersist() {
+  if (appState.persistTimer) {
+    clearTimeout(appState.persistTimer);
+  }
+  appState.persistTimer = window.setTimeout(persistUiState, 140);
+}
+
+function resetUiState() {
+  if (!appState.storageKey) return;
+  try {
+    window.localStorage.removeItem(appState.storageKey);
+  } catch (_error) {
+    // Ignore localStorage failures.
+  }
+
+  appState.ui = {
+    collapsedGroups: {},
+    visitedFiles: {},
+    notes: {},
+    activeFilePath: null,
+  };
+
+  if (appState.analysis) {
+    renderSummary(appState.analysis);
+    renderGroups(appState.analysis);
+    renderRiskSidebar(appState.analysis);
+    renderRelatedFiles(appState.analysis);
+  }
+}
+
+function signalLabel(pattern, confidence) {
+  return `${pattern} ${confidence.toFixed(2)}`;
 }
 
 function renderSummary(data) {
@@ -84,14 +177,26 @@ function renderSummary(data) {
 }
 
 function renderGroups(data) {
-  const filesByPath = new Map((data.files || []).map((f) => [f.path, f]));
+  const filesByPath = new Map((data.files || []).map((file) => [file.path, file]));
   const groupsRoot = document.getElementById("groups");
   groupsRoot.innerHTML = "";
 
   for (const group of data.groups || []) {
     const details = document.createElement("details");
     details.className = "group";
-    details.open = (group.risk || "") === "high";
+    details.dataset.groupId = group.id;
+
+    const storedCollapsed = appState.ui.collapsedGroups[group.id];
+    if (typeof storedCollapsed === "boolean") {
+      details.open = !storedCollapsed;
+    } else {
+      details.open = (group.risk || "") === "high";
+    }
+
+    details.addEventListener("toggle", () => {
+      appState.ui.collapsedGroups[group.id] = !details.open;
+      schedulePersist();
+    });
 
     const summary = document.createElement("summary");
     const title = document.createElement("span");
@@ -113,6 +218,9 @@ function renderGroups(data) {
       fileCard.className = "file-card";
       fileCard.dataset.filePath = file.path;
       fileCard.tabIndex = 0;
+      if (appState.ui.visitedFiles[file.path]) {
+        fileCard.classList.add("visited");
+      }
 
       const header = document.createElement("div");
       header.className = "file-header";
@@ -136,11 +244,47 @@ function renderGroups(data) {
       const risk = riskBadge(file.risk_level);
       header.append(path, status, type, facets, risk);
 
+      const signalRow = document.createElement("div");
+      signalRow.className = "pattern-signals";
+      const confidence = file.pattern_confidence || {};
+      const patternNames = Object.keys(confidence).sort();
+      if (patternNames.length) {
+        for (const pattern of patternNames) {
+          const value = Number(confidence[pattern]);
+          const signal = document.createElement("span");
+          signal.className = "signal";
+          signal.textContent = signalLabel(pattern, Number.isFinite(value) ? value : 0);
+          signalRow.appendChild(signal);
+        }
+      }
+
       const patch = document.createElement("pre");
       patch.className = "patch";
       patch.textContent = (file.patch || "").trim() || "No line-level patch available";
 
-      fileCard.append(header, patch);
+      const noteWrap = document.createElement("div");
+      noteWrap.className = "note-wrap";
+
+      const noteLabel = document.createElement("label");
+      noteLabel.className = "note-label";
+      noteLabel.textContent = "Reviewer note";
+
+      const noteInput = document.createElement("textarea");
+      noteInput.className = "note-input";
+      noteInput.placeholder = "Optional note for this file";
+      noteInput.value = appState.ui.notes[file.path] || "";
+      noteInput.addEventListener("input", () => {
+        const text = noteInput.value;
+        if (text.trim()) {
+          appState.ui.notes[file.path] = text;
+        } else {
+          delete appState.ui.notes[file.path];
+        }
+        schedulePersist();
+      });
+
+      noteWrap.append(noteLabel, noteInput);
+      fileCard.append(header, signalRow, patch, noteWrap);
       details.appendChild(fileCard);
     }
 
@@ -213,30 +357,50 @@ function renderRelatedFiles(data) {
 }
 
 function refreshNavigationState() {
-  navState.groupEls = Array.from(document.querySelectorAll("#groups details.group"));
-  navState.fileEls = Array.from(document.querySelectorAll("#groups .file-card"));
-  navState.activeFileIndex = navState.fileEls.length ? 0 : -1;
+  appState.nav.groupEls = Array.from(document.querySelectorAll("#groups details.group"));
+  appState.nav.fileEls = Array.from(document.querySelectorAll("#groups .file-card"));
 
-  navState.fileEls.forEach((el, index) => {
+  const savedPath = appState.ui.activeFilePath;
+  let nextIndex = appState.nav.fileEls.length ? 0 : -1;
+  if (savedPath) {
+    const foundIndex = appState.nav.fileEls.findIndex((el) => el.dataset.filePath === savedPath);
+    if (foundIndex >= 0) {
+      nextIndex = foundIndex;
+    }
+  }
+
+  appState.nav.activeFileIndex = nextIndex;
+
+  appState.nav.fileEls.forEach((el, index) => {
     el.addEventListener("click", () => setActiveFile(index));
     el.addEventListener("focus", () => setActiveFile(index, false));
   });
 
-  if (navState.activeFileIndex >= 0) {
-    setActiveFile(navState.activeFileIndex, false);
+  if (appState.nav.activeFileIndex >= 0) {
+    setActiveFile(appState.nav.activeFileIndex, false);
   }
 }
 
 function setActiveFile(index, scroll = true) {
-  if (index < 0 || index >= navState.fileEls.length) return;
+  if (index < 0 || index >= appState.nav.fileEls.length) return;
 
-  navState.fileEls.forEach((el) => el.classList.remove("active"));
-  const current = navState.fileEls[index];
+  appState.nav.fileEls.forEach((el) => el.classList.remove("active"));
+  const current = appState.nav.fileEls[index];
   current.classList.add("active");
-  navState.activeFileIndex = index;
+  appState.nav.activeFileIndex = index;
+
+  const path = current.dataset.filePath || null;
+  if (path) {
+    appState.ui.activeFilePath = path;
+    appState.ui.visitedFiles[path] = true;
+    current.classList.add("visited");
+    schedulePersist();
+  }
 
   const group = current.closest("details.group");
-  if (group) group.open = true;
+  if (group) {
+    group.open = true;
+  }
 
   if (scroll) {
     current.scrollIntoView({ block: "center", behavior: "smooth" });
@@ -244,33 +408,36 @@ function setActiveFile(index, scroll = true) {
 }
 
 function moveFile(step) {
-  if (!navState.fileEls.length) return;
-  const next = Math.max(0, Math.min(navState.fileEls.length - 1, navState.activeFileIndex + step));
+  if (!appState.nav.fileEls.length) return;
+  const next = Math.max(
+    0,
+    Math.min(appState.nav.fileEls.length - 1, appState.nav.activeFileIndex + step)
+  );
   setActiveFile(next);
 }
 
 function groupForActiveFile() {
-  if (navState.activeFileIndex < 0 || !navState.fileEls.length) return null;
-  return navState.fileEls[navState.activeFileIndex].closest("details.group");
+  if (appState.nav.activeFileIndex < 0 || !appState.nav.fileEls.length) return null;
+  return appState.nav.fileEls[appState.nav.activeFileIndex].closest("details.group");
 }
 
 function moveGroup(step) {
-  if (!navState.groupEls.length) return;
+  if (!appState.nav.groupEls.length) return;
 
   const activeGroup = groupForActiveFile();
   let currentIndex = 0;
   if (activeGroup) {
-    currentIndex = navState.groupEls.indexOf(activeGroup);
+    currentIndex = appState.nav.groupEls.indexOf(activeGroup);
   }
 
-  const nextGroupIndex = Math.max(0, Math.min(navState.groupEls.length - 1, currentIndex + step));
-  const nextGroup = navState.groupEls[nextGroupIndex];
+  const nextGroupIndex = Math.max(0, Math.min(appState.nav.groupEls.length - 1, currentIndex + step));
+  const nextGroup = appState.nav.groupEls[nextGroupIndex];
   nextGroup.open = true;
 
   const firstFile = nextGroup.querySelector(".file-card");
   if (!firstFile) return;
 
-  const nextFileIndex = navState.fileEls.indexOf(firstFile);
+  const nextFileIndex = appState.nav.fileEls.indexOf(firstFile);
   if (nextFileIndex >= 0) {
     setActiveFile(nextFileIndex);
   }
@@ -284,21 +451,29 @@ function toggleActiveGroup() {
 
 function toggleShortcutOverlay(forceVisible) {
   const overlay = document.getElementById("shortcut-overlay");
-  const visible = typeof forceVisible === "boolean" ? forceVisible : overlay.classList.contains("hidden");
+  const visible =
+    typeof forceVisible === "boolean" ? forceVisible : overlay.classList.contains("hidden");
 
   overlay.classList.toggle("hidden", !visible);
   overlay.setAttribute("aria-hidden", visible ? "false" : "true");
 }
 
-function bindShortcuts() {
+function bindControls() {
   const helpButton = document.getElementById("shortcut-help-btn");
   const overlay = document.getElementById("shortcut-overlay");
+  const resetButton = document.getElementById("reset-state-btn");
 
   helpButton.addEventListener("click", () => toggleShortcutOverlay());
   overlay.addEventListener("click", (event) => {
     if (event.target === overlay) {
       toggleShortcutOverlay(false);
     }
+  });
+
+  resetButton.addEventListener("click", () => {
+    const confirmed = window.confirm("Reset saved review state for this diff view?");
+    if (!confirmed) return;
+    resetUiState();
   });
 
   window.addEventListener("keydown", (event) => {
@@ -310,6 +485,11 @@ function bindShortcuts() {
     if (event.key === "?") {
       event.preventDefault();
       toggleShortcutOverlay();
+      return;
+    }
+
+    if (event.key === "Escape") {
+      toggleShortcutOverlay(false);
       return;
     }
 
@@ -351,11 +531,15 @@ async function bootstrap() {
   }
 
   const data = await response.json();
+  appState.analysis = data;
+  appState.storageKey = computeStorageKey(data);
+  loadUiState();
+
   renderSummary(data);
   renderGroups(data);
   renderRiskSidebar(data);
   renderRelatedFiles(data);
-  bindShortcuts();
+  bindControls();
 }
 
 bootstrap().catch((error) => {

@@ -10,6 +10,7 @@ from typing import Any
 from .analyzer import analyze_diff
 from .ignore import read_ignore_patterns
 from .plan_validator import validate_execution_plan
+from .sarif import analysis_to_sarif
 from .webserver import run_server
 
 
@@ -62,6 +63,12 @@ def build_parser() -> argparse.ArgumentParser:
     analyze_parser.add_argument("--plan", help="Optional execution plan JSON path")
     analyze_parser.add_argument("--output", help="Optional output file for analysis JSON")
     analyze_parser.add_argument(
+        "--format",
+        choices=["json", "sarif"],
+        default="json",
+        help="Output format for analyze command (default: json)",
+    )
+    analyze_parser.add_argument(
         "--ignore-file",
         help="Path to .agentdiffignore-style file (default: ./.agentdiffignore if present)",
     )
@@ -93,7 +100,8 @@ def main(argv: list[str] | None = None) -> int:
             plan_data = _read_plan(args.plan)
             ignore_patterns = _resolve_ignore_patterns(args.ignore_file)
             result = analyze_diff(diff_text, plan_data, ignore_patterns=ignore_patterns)
-            _write_output(result, args.output)
+            output_payload = analysis_to_sarif(result) if args.format == "sarif" else result
+            _write_output(output_payload, args.output)
             return 0
 
         if args.command == "serve":

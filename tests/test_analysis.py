@@ -18,6 +18,8 @@ class AnalysisTests(unittest.TestCase):
         self.assertIn("config_change", files["config/app.yaml"]["patterns"])
         self.assertIn("schema_change", files["migrations/20260312_add_user_role.sql"]["patterns"])
         self.assertIn("auth_related", files["src/security/token_validator.py"]["patterns"])
+        self.assertIn("pattern_confidence", files["src/security/token_validator.py"])
+        self.assertGreater(files["src/security/token_validator.py"]["pattern_confidence"]["auth_related"], 0.6)
 
     def test_analysis_produces_groups_and_review_order(self) -> None:
         diff_text = Path("examples/sample.diff").read_text(encoding="utf-8")

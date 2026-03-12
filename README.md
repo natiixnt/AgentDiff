@@ -12,6 +12,7 @@ AgentDiff gives you a reviewer-oriented view of that output:
 
 - grouped logical change sets
 - change type hints (rename, refactor, extraction, behavior change)
+- confidence scores for each detected change signal
 - risk annotations with reasons
 - suggested review order
 - plan-vs-diff drift flags (planned-but-unchanged, changed-but-unplanned)
@@ -95,6 +96,12 @@ Analyze a specific diff and write JSON output:
 agentdiff analyze --diff examples/sample.diff --plan examples/sample_plan.json --output analysis.json
 ```
 
+Export SARIF for CI annotation pipelines:
+
+```bash
+agentdiff analyze --diff examples/sample.diff --format sarif --output agentdiff.sarif.json
+```
+
 Serve the web app from precomputed analysis:
 
 ```bash
@@ -108,6 +115,13 @@ Keyboard shortcuts in UI:
 - `[/]` next/previous group
 - `o` toggle current group
 
+Review state is persisted locally per diff view:
+
+- collapsed/expanded groups
+- visited file markers
+- optional per-file reviewer notes
+- resettable with the `Reset State` button
+
 ## Architecture
 
 AgentDiff is intentionally lightweight: Python stdlib backend + minimal static frontend.
@@ -118,9 +132,10 @@ AgentDiff is intentionally lightweight: Python stdlib backend + minimal static f
 2. Detect patterns (rename, signature/config/schema/auth signals).
 3. Classify change type and score risk.
 4. Group related files into logical review sets.
-5. Compute plan drift (when execution plan is provided).
-6. Suggest review order (plan-aware when provided).
-7. Render analysis in local web UI.
+5. Attach detector confidence per pattern.
+6. Compute plan drift (when execution plan is provided).
+7. Suggest review order (plan-aware when provided).
+8. Render analysis in local web UI.
 
 ### Repository structure
 
@@ -139,6 +154,27 @@ AgentDiff is intentionally lightweight: Python stdlib backend + minimal static f
 - Add plugin-style detectors for language/framework-specific patterns
 - Add SARIF/CI output mode for automated review gates
 - Add richer rename/extraction confidence scoring
+
+## Confidence Scale
+
+Pattern confidence values are heuristic probabilities in the range `0.00` to `1.00`:
+
+- `0.85 - 1.00`: very likely signal
+- `0.65 - 0.84`: probable signal
+- `0.40 - 0.64`: weak signal, review carefully
+- `< 0.40`: low-confidence hint
+
+These scores are intended to prioritize human review, not to act as hard truth.
+
+## CI Example (SARIF)
+
+Generate SARIF and upload it in your CI system:
+
+```bash
+agentdiff analyze --format sarif --output agentdiff.sarif.json
+```
+
+Use your platform SARIF uploader (for example, GitHub code scanning upload action) to attach findings to PRs.
 
 ## License
 

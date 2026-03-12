@@ -87,6 +87,11 @@
         "behavior_change",
         "signature_change"
       ],
+      "pattern_confidence": {
+        "auth_related": 0.92,
+        "behavior_change": 0.61,
+        "signature_change": 0.84
+      },
       "change_type": "behavior_change",
       "change_facets": [
         "behavior_change"
@@ -119,6 +124,12 @@
         "rename",
         "signature_change"
       ],
+      "pattern_confidence": {
+        "auth_related": 0.95,
+        "behavior_change": 0.61,
+        "rename": 0.98,
+        "signature_change": 0.98
+      },
       "change_type": "refactor",
       "change_facets": [
         "rename",
@@ -155,6 +166,11 @@
         "behavior_change",
         "signature_change"
       ],
+      "pattern_confidence": {
+        "auth_related": 0.95,
+        "behavior_change": 0.62,
+        "signature_change": 0.98
+      },
       "change_type": "behavior_change",
       "change_facets": [
         "behavior_change"
@@ -186,6 +202,9 @@
       "patterns": [
         "schema_change"
       ],
+      "pattern_confidence": {
+        "schema_change": 0.95
+      },
       "change_type": "added",
       "change_facets": [
         "added"
@@ -213,6 +232,9 @@
       "patterns": [
         "config_change"
       ],
+      "pattern_confidence": {
+        "config_change": 0.96
+      },
       "change_type": "config_change",
       "change_facets": [
         "config_change"
@@ -241,6 +263,10 @@
         "behavior_change",
         "signature_change"
       ],
+      "pattern_confidence": {
+        "behavior_change": 0.6,
+        "signature_change": 0.98
+      },
       "change_type": "behavior_change",
       "change_facets": [
         "behavior_change"

@@ -46,10 +46,26 @@ body {
   color: var(--muted);
 }
 
+.topbar-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .shortcut-btn {
   background: #11273d;
   color: #f2f8ff;
   border: none;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reset-btn {
+  background: #fff;
+  color: #203148;
+  border: 1px solid #a8bacf;
   border-radius: 999px;
   padding: 0.4rem 0.75rem;
   font-weight: 600;
@@ -186,6 +202,11 @@ h3 {
   background: #f8fbff;
 }
 
+.file-card.visited {
+  border-left: 4px solid #62a15e;
+  padding-left: calc(0.85rem - 4px);
+}
+
 .file-header {
   display: flex;
   flex-wrap: wrap;
@@ -226,6 +247,22 @@ h3 {
   background: #f2fbff;
 }
 
+.pattern-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.45rem;
+}
+
+.signal {
+  font-size: 0.72rem;
+  border-radius: 999px;
+  border: 1px solid #a8bacf;
+  color: #203148;
+  background: #f5f8fc;
+  padding: 0.12rem 0.45rem;
+}
+
 .patch {
   margin: 0;
   border-radius: 8px;
@@ -237,6 +274,29 @@ h3 {
   max-height: 220px;
   overflow: auto;
   padding: 0.5rem;
+}
+
+.note-wrap {
+  margin-top: 0.45rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.note-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.note-input {
+  width: 100%;
+  min-height: 64px;
+  border: 1px solid #b7c4d3;
+  border-radius: 8px;
+  padding: 0.45rem 0.5rem;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  background: #fff;
 }
 
 .risk-list {
@@ -340,5 +400,9 @@ h3 {
   .topbar {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .topbar-controls {
+    width: 100%;
   }
 }

@@ -1,0 +1,548 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "AgentDiff",
+          "version": "0.1.0",
+          "informationUri": "https://github.com/natiixnt/AgentDiff",
+          "rules": [
+            {
+              "id": "agentdiff/pattern/auth_related",
+              "name": "Auth Related",
+              "shortDescription": {
+                "text": "Auth Related"
+              },
+              "properties": {
+                "tags": [
+                  "agentdiff",
+                  "code-review"
+                ]
+              }
+            },
+            {
+              "id": "agentdiff/pattern/behavior_change",
+              "name": "Behavior Change",
+              "shortDescription": {
+                "text": "Behavior Change"
+              },
+              "properties": {
+                "tags": [
+                  "agentdiff",
+                  "code-review"
+                ]
+              }
+            },
+            {
+              "id": "agentdiff/pattern/config_change",
+              "name": "Config Change",
+              "shortDescription": {
+                "text": "Config Change"
+              },
+              "properties": {
+                "tags": [
+                  "agentdiff",
+                  "code-review"
+                ]
+              }
+            },
+            {
+              "id": "agentdiff/pattern/rename",
+              "name": "Rename",
+              "shortDescription": {
+                "text": "Rename"
+              },
+              "properties": {
+                "tags": [
+                  "agentdiff",
+                  "code-review"
+                ]
+              }
+            },
+            {
+              "id": "agentdiff/pattern/schema_change",
+              "name": "Schema Change",
+              "shortDescription": {
+                "text": "Schema Change"
+              },
+              "properties": {
+                "tags": [
+                  "agentdiff",
+                  "code-review"
+                ]
+              }
+            },
+            {
+              "id": "agentdiff/pattern/signature_change",
+              "name": "Signature Change",
+              "shortDescription": {
+                "text": "Signature Change"
+              },
+              "properties": {
+                "tags": [
+                  "agentdiff",
+                  "code-review"
+                ]
+              }
+            },
+            {
+              "id": "agentdiff/risk/high",
+              "name": "High",
+              "shortDescription": {
+                "text": "High"
+              },
+              "properties": {
+                "tags": [
+                  "agentdiff",
+                  "code-review"
+                ]
+              }
+            },
+            {
+              "id": "agentdiff/risk/medium",
+              "name": "Medium",
+              "shortDescription": {
+                "text": "Medium"
+              },
+              "properties": {
+                "tags": [
+                  "agentdiff",
+                  "code-review"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "%SRCROOT%": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "agentdiff/risk/high",
+          "level": "error",
+          "message": {
+            "text": "Risk=high (score 9/10). Touches authentication/authorization code; Function/method signatures changed; Contains executable behavior changes"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/api/user_service.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.risk_score": 9,
+            "agentdiff.change_type": "behavior_change"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/auth_related",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `auth_related` with confidence 0.92."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/api/user_service.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.92,
+            "agentdiff.category": "source"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/behavior_change",
+          "level": "note",
+          "message": {
+            "text": "Detected pattern `behavior_change` with confidence 0.61."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/api/user_service.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.61,
+            "agentdiff.category": "source"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/signature_change",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `signature_change` with confidence 0.84."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/api/user_service.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.84,
+            "agentdiff.category": "source"
+          }
+        },
+        {
+          "ruleId": "agentdiff/risk/high",
+          "level": "error",
+          "message": {
+            "text": "Risk=high (score 9/10). Touches authentication/authorization code; Function/method signatures changed; Contains executable behavior changes"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/auth_utils.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.risk_score": 9,
+            "agentdiff.change_type": "refactor"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/auth_related",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `auth_related` with confidence 0.95."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/auth_utils.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.95,
+            "agentdiff.category": "auth"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/behavior_change",
+          "level": "note",
+          "message": {
+            "text": "Detected pattern `behavior_change` with confidence 0.61."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/auth_utils.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.61,
+            "agentdiff.category": "auth"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/rename",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `rename` with confidence 0.98."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/auth_utils.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.98,
+            "agentdiff.category": "auth"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/signature_change",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `signature_change` with confidence 0.98."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/auth_utils.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.98,
+            "agentdiff.category": "auth"
+          }
+        },
+        {
+          "ruleId": "agentdiff/risk/high",
+          "level": "error",
+          "message": {
+            "text": "Risk=high (score 9/10). Touches authentication/authorization code; Function/method signatures changed; Contains executable behavior changes"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/token_validator.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.risk_score": 9,
+            "agentdiff.change_type": "behavior_change"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/auth_related",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `auth_related` with confidence 0.95."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/token_validator.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.95,
+            "agentdiff.category": "auth"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/behavior_change",
+          "level": "note",
+          "message": {
+            "text": "Detected pattern `behavior_change` with confidence 0.62."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/token_validator.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.62,
+            "agentdiff.category": "auth"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/signature_change",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `signature_change` with confidence 0.98."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/security/token_validator.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.98,
+            "agentdiff.category": "auth"
+          }
+        },
+        {
+          "ruleId": "agentdiff/risk/medium",
+          "level": "warning",
+          "message": {
+            "text": "Risk=medium (score 5/10). Modifies schema or migration surface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/20260312_add_user_role.sql",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.risk_score": 5,
+            "agentdiff.change_type": "added"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/schema_change",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `schema_change` with confidence 0.95."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/20260312_add_user_role.sql",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.95,
+            "agentdiff.category": "schema"
+          }
+        },
+        {
+          "ruleId": "agentdiff/risk/medium",
+          "level": "warning",
+          "message": {
+            "text": "Risk=medium (score 4/10). Changes runtime/build configuration"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/app.yaml",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.risk_score": 4,
+            "agentdiff.change_type": "config_change"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/config_change",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `config_change` with confidence 0.96."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/app.yaml",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.96,
+            "agentdiff.category": "config"
+          }
+        },
+        {
+          "ruleId": "agentdiff/risk/medium",
+          "level": "warning",
+          "message": {
+            "text": "Risk=medium (score 4/10). Function/method signatures changed; Contains executable behavior changes; Primarily non-production surface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/test_user_service.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.risk_score": 4,
+            "agentdiff.change_type": "behavior_change"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/behavior_change",
+          "level": "note",
+          "message": {
+            "text": "Detected pattern `behavior_change` with confidence 0.60."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/test_user_service.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.6,
+            "agentdiff.category": "test"
+          }
+        },
+        {
+          "ruleId": "agentdiff/pattern/signature_change",
+          "level": "warning",
+          "message": {
+            "text": "Detected pattern `signature_change` with confidence 0.98."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/test_user_service.py",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "agentdiff.confidence": 0.98,
+            "agentdiff.category": "test"
+          }
+        }
+      ]
+    }
+  ]
+}

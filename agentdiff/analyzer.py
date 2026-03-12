@@ -9,7 +9,7 @@ from analyzers import (
     build_change_groups,
     build_related_files,
     categorize_file,
-    detect_patterns,
+    detect_pattern_confidence,
     infer_change_type,
     suggest_review_order,
 )
@@ -44,6 +44,14 @@ def _augment_extractions(files: list[dict[str, Any]]) -> None:
             if added_name in modified.get("patch", "").lower():
                 added.setdefault("patterns", []).append("extraction")
                 modified.setdefault("patterns", []).append("extraction")
+                added.setdefault("pattern_confidence", {})
+                modified.setdefault("pattern_confidence", {})
+                added["pattern_confidence"]["extraction"] = max(
+                    float(added["pattern_confidence"].get("extraction", 0.0)), 0.73
+                )
+                modified["pattern_confidence"]["extraction"] = max(
+                    float(modified["pattern_confidence"].get("extraction", 0.0)), 0.7
+                )
                 if added.get("change_type") == "behavior_change":
                     added["change_type"] = "extraction"
                 if modified.get("change_type") == "behavior_change":
@@ -53,7 +61,8 @@ def _augment_extractions(files: list[dict[str, Any]]) -> None:
 def _file_record(change: FileChange) -> dict[str, Any]:
     path = change.path
     category = categorize_file(path)
-    pattern_set = detect_patterns(change, category)
+    pattern_confidence = detect_pattern_confidence(change, category)
+    pattern_set = set(pattern_confidence.keys())
     patterns = sorted(pattern_set)
     change_type = infer_change_type(change, pattern_set)
 
@@ -64,6 +73,7 @@ def _file_record(change: FileChange) -> dict[str, Any]:
         "status": change.status,
         "category": category,
         "patterns": patterns,
+        "pattern_confidence": {key: pattern_confidence[key] for key in sorted(pattern_confidence)},
         "change_type": change_type,
         "change_facets": _change_facets(change_type, pattern_set),
         "additions": len(change.added_lines),
@@ -169,6 +179,14 @@ def analyze_diff(
     for file_data in files:
         # Keep pattern list stable and unique in final output.
         file_data["patterns"] = sorted(set(file_data.get("patterns", [])))
+        pattern_confidence = {
+            key: round(float(value), 2) for key, value in file_data.get("pattern_confidence", {}).items()
+        }
+        for pattern in file_data["patterns"]:
+            pattern_confidence.setdefault(pattern, 0.6)
+        file_data["pattern_confidence"] = {
+            key: pattern_confidence[key] for key in sorted(pattern_confidence)
+        }
         file_data["change_facets"] = _change_facets(
             file_data.get("change_type", "modified"), set(file_data["patterns"])
         )

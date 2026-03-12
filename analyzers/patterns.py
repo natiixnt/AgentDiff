@@ -56,6 +56,10 @@ def _matches_any(line: str, patterns: Iterable[re.Pattern[str]]) -> bool:
     return any(pattern.search(line) for pattern in patterns)
 
 
+def _match_count(lines: list[str], patterns: Iterable[re.Pattern[str]]) -> int:
+    return sum(1 for line in lines if _matches_any(line, patterns))
+
+
 def _is_code_file(path: str) -> bool:
     return PurePosixPath(path or "").suffix.lower() in CODE_EXTS
 
@@ -103,28 +107,58 @@ def _is_auth_change(change: FileChange, category: str) -> bool:
     return any(_matches_any(line, AUTH_LINE_PATTERNS) for line in combined)
 
 
-def detect_patterns(change: FileChange, category: str) -> set[str]:
-    patterns: set[str] = set()
+def detect_pattern_confidence(change: FileChange, category: str) -> dict[str, float]:
+    confidence: dict[str, float] = {}
+    combined = change.added_lines + change.removed_lines
 
     if change.status == "renamed":
-        patterns.add("rename")
+        similarity = str(change.metadata.get("similarity_index", "")).replace("%", "").strip()
+        try:
+            score = int(similarity)
+            if score >= 90:
+                confidence["rename"] = 0.98
+            elif score >= 75:
+                confidence["rename"] = 0.9
+            else:
+                confidence["rename"] = 0.78
+        except ValueError:
+            confidence["rename"] = 0.82
 
     if _has_signature_change(change):
-        patterns.add("signature_change")
+        signature_hits = _match_count(change.added_lines + change.removed_lines, SIGNATURE_PATTERNS)
+        confidence["signature_change"] = min(0.98, 0.68 + (signature_hits * 0.08))
 
     if _is_config_change(change, category):
-        patterns.add("config_change")
+        if category == "config":
+            confidence["config_change"] = 0.96
+        else:
+            config_hits = _match_count(combined, CONFIG_LINE_PATTERNS)
+            confidence["config_change"] = min(0.9, 0.62 + (config_hits * 0.08))
 
     if _is_schema_change(change, category):
-        patterns.add("schema_change")
+        if category == "schema":
+            confidence["schema_change"] = 0.95
+        else:
+            schema_hits = _match_count(combined, SCHEMA_LINE_PATTERNS)
+            confidence["schema_change"] = min(0.92, 0.66 + (schema_hits * 0.1))
 
     if _is_auth_change(change, category):
-        patterns.add("auth_related")
+        if category == "auth":
+            confidence["auth_related"] = 0.95
+        else:
+            auth_hits = _match_count(combined, AUTH_LINE_PATTERNS)
+            confidence["auth_related"] = min(0.92, 0.64 + (auth_hits * 0.08))
 
     if _is_probably_behavior_change(change):
-        patterns.add("behavior_change")
+        churn = len([line for line in combined if line.strip()])
+        confidence["behavior_change"] = min(0.9, 0.56 + (churn / 240))
 
-    return patterns
+    # Clamp and round to keep payload stable and readable.
+    return {pattern: round(max(0.0, min(1.0, value)), 2) for pattern, value in confidence.items()}
+
+
+def detect_patterns(change: FileChange, category: str) -> set[str]:
+    return set(detect_pattern_confidence(change, category).keys())
 
 
 def infer_change_type(change: FileChange, patterns: set[str]) -> str:
